@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
@@ -12,11 +13,11 @@
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
-            <AnchorPane layoutX="77.0" layoutY="73.0" prefHeight="720.0" prefWidth="398.0" style="-fx-background-color: #2D4AE3;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="512.0" AnchorPane.topAnchor="0.0">
+            <AnchorPane layoutX="77.0" layoutY="73.0" styleClass="backgroundpanal1" stylesheets="@LoginCSS.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="512.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Button fx:id="Home_Cashier_btn" alignment="BOTTOM_CENTER" layoutX="60.0" layoutY="116.0" mnemonicParsing="false" prefHeight="500.0" prefWidth="400.0" style="-fx-background-color: #7A95D8; -fx-background-radius: 8px;" text="Cashier" textAlignment="CENTER" AnchorPane.bottomAnchor="110.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="110.0">
+                  <Button fx:id="Home_Cashier_btn" alignment="BOTTOM_CENTER" layoutX="60.0" layoutY="116.0" mnemonicParsing="false" prefHeight="500.0" prefWidth="400.0" style="-fx-background-radius: 8px;" styleClass="backgroundpanal2" stylesheets="@LoginCSS.css" text="Cashier" textAlignment="CENTER" AnchorPane.bottomAnchor="110.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="110.0">
                      <font>
-                        <Font name="System Bold" size="48.0" />
+                        <Font name="Arial Bold" size="48.0" />
                      </font>
                   </Button>
                   <ImageView fitHeight="330.0" fitWidth="306.0" layoutX="103.0" layoutY="174.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="174.0">
@@ -26,9 +27,9 @@
                   </ImageView>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="777.0" layoutY="260.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #2D4AE3;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="512.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <AnchorPane layoutX="777.0" layoutY="260.0" styleClass="backgroundpanal1" stylesheets="@LoginCSS.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="512.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Button fx:id="Home_Manager_btn" alignment="BOTTOM_CENTER" layoutX="68.0" layoutY="106.0" mnemonicParsing="false" prefHeight="500.0" prefWidth="400.0" style="-fx-background-color: #7A95D8; -fx-background-radius: 8px;" text="Manager" textAlignment="CENTER" AnchorPane.bottomAnchor="110.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="110.0">
+                  <Button fx:id="Home_Manager_btn" alignment="BOTTOM_CENTER" layoutX="68.0" layoutY="106.0" mnemonicParsing="false" prefHeight="500.0" prefWidth="400.0" style="-fx-background-radius: 8px;" styleClass="backgroundpanal2" stylesheets="@LoginCSS.css" text="Manager" textAlignment="CENTER" AnchorPane.bottomAnchor="110.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="110.0">
                      <font>
                         <Font name="System Bold" size="48.0" />
                      </font>
@@ -40,6 +41,11 @@
                   </ImageView>
                </children>
             </AnchorPane>
+            <Button fx:id="close_btn" cancelButton="true" layoutX="539.0" layoutY="27.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="47.0" style="-fx-background-color: transpetrant;" stylesheets="@LoginCSS.css" text="X" textFill="WHITE" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+               <font>
+                  <Font name="Arial Bold Italic" size="24.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </children>
