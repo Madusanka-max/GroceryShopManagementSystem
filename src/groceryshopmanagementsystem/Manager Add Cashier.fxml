@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1024.0" type="StackPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="groceryshopmanagementsystem.Controller">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <AnchorPane layoutX="13.0" layoutY="18.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <AnchorPane layoutX="33.0" layoutY="33.0" prefHeight="720.0" prefWidth="291.0" style="-fx-background-color: #2D4AE3;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label alignment="CENTER" layoutX="84.0" layoutY="235.0" text="Manager">
+                           <font>
+                              <Font name="System Bold" size="36.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="Manager_Dashbord_btn" layoutX="92.0" layoutY="377.0" mnemonicParsing="false" style="-fx-background-color: #2D4AE3;" text="Dashbord" textFill="WHITE" AnchorPane.leftAnchor="92.0">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="SignOut_btn" layoutX="85.0" layoutY="638.0" mnemonicParsing="false" style="-fx-background-color: #2D4AE3;" text="Sign out" textFill="WHITE">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="Manager_AddCashier_btn" layoutX="92.0" layoutY="442.0" mnemonicParsing="false" style="-fx-background-color: transperant; -fx-border-color: #FFF; -fx-border-width: 0px 0px 3px 0px;" text="Add Cashier" textFill="WHITE" AnchorPane.leftAnchor="92.0">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="Manager_AddProduct_btn" layoutX="92.0" layoutY="514.0" mnemonicParsing="false" style="-fx-background-color: #2D4AE3;" text="Add Product" textFill="WHITE" AnchorPane.leftAnchor="92.0">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="791.0" layoutY="33.0" prefHeight="720.0" prefWidth="736.0" style="-fx-background-color: #7A95D8;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <AnchorPane prefHeight="351.0" prefWidth="736.0" AnchorPane.bottomAnchor="369.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <TableView fx:id="Manager_AddCashier_table" layoutX="8.0" layoutY="14.0" prefHeight="327.0" prefWidth="719.0">
+                                 <columns>
+                                    <TableColumn fx:id="Manager_AddCashier_table_Eid" prefWidth="98.0" text="Employee Id" />
+                                    <TableColumn fx:id="Manager_AddCashier_table_Fname" prefWidth="201.0" text="First Name" />
+                                    <TableColumn fx:id="Manager_AddCashier_table_Lname" prefWidth="196.0" text="Last Name" />
+                                    <TableColumn fx:id="Manager_AddCashier_table_gender" prefWidth="61.0" text="Gender" />
+                                    <TableColumn fx:id="Manager_AddCashier_table_password" prefWidth="156.0" text="Password" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="536.0" layoutY="352.0" prefHeight="368.0" prefWidth="736.0" style="-fx-background-color: #0f57fb;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="352.0">
+                           <children>
+                              <Button fx:id="Manager_AddCashier_ADD_btn" layoutX="79.0" layoutY="293.0" mnemonicParsing="false" style="-fx-background-color: #2D4AE3;" text="ADD" textFill="WHITE">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="Manager_AddCashier_Update_btn" layoutX="232.0" layoutY="293.0" mnemonicParsing="false" style="-fx-background-color: #2D4AE3;" text="Update" textFill="WHITE">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="Manager_AddCashier_Clear_btn" layoutX="582.0" layoutY="293.0" mnemonicParsing="false" style="-fx-background-color: #2D4AE3;" text="Clear" textFill="WHITE">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Button>
+                              <TextField fx:id="Manager_AddCashier_Eid_TextFeild" layoutX="168.0" layoutY="58.0" />
+                              <TextField fx:id="Manager_AddCashier_Fname_TextFeild" layoutX="168.0" layoutY="130.0" />
+                              <Label alignment="CENTER" layoutX="10.0" layoutY="58.0" prefHeight="35.0" prefWidth="152.0" text="Employee Id :" textFill="WHITE" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="574.0">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" layoutX="28.0" layoutY="130.0" text="First Name :" textFill="WHITE" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="582.0">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" layoutX="64.0" layoutY="200.0" text="Gender :" textFill="WHITE">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="Manager_AddCashier_gender_TextFeild" layoutX="168.0" layoutY="202.0" />
+                              <Label alignment="CENTER" layoutX="375.0" layoutY="130.0" text="Last Name :" textFill="WHITE">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" layoutX="387.0" layoutY="58.0" text="Password :" textFill="WHITE">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="Manager_AddCashier_Lname_TextFeild" layoutX="516.0" layoutY="132.0" />
+                              <TextField fx:id="Manager_AddCashier_password_TextFeild" layoutX="516.0" layoutY="60.0" />
+                              <Button fx:id="Manager_AddCashier_Delete_btn" layoutX="415.0" layoutY="293.0" mnemonicParsing="false" style="-fx-background-color: #2D4AE3;" text="Delete" textFill="WHITE">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</fx:root>

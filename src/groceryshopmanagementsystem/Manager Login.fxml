@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="groceryshopmanagementsystem.Controller">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1024.0" type="StackPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="groceryshopmanagementsystem.Controller">
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
@@ -24,22 +24,22 @@
                   </AnchorPane>
                   <AnchorPane layoutX="791.0" layoutY="33.0" prefHeight="720.0" prefWidth="585.0" style="-fx-background-color: #7A95D8;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <TextField fx:id="CashierLogin_Username_textField" layoutX="147.0" layoutY="385.0" promptText="Username">
+                        <TextField fx:id="ManagerLogin_Username_textField" layoutX="147.0" layoutY="385.0" promptText="Username">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </TextField>
-                        <PasswordField fx:id="CashierLogin_password_textField" layoutX="147.0" layoutY="473.0" promptText="Password">
+                        <PasswordField fx:id="ManagerLogin_password_textField" layoutX="147.0" layoutY="473.0" promptText="Password">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </PasswordField>
-                        <Button fx:id="CashierLogin_Login_btn" layoutX="245.0" layoutY="570.0" mnemonicParsing="false" style="-fx-background-color: #2D4AE3;" text="Login">
+                        <Button fx:id="ManagerLogin_Login_btn" layoutX="245.0" layoutY="570.0" mnemonicParsing="false" style="-fx-background-color: #2D4AE3;" text="Login">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </Button>
-                        <Label layoutX="238.0" layoutY="282.0" text="Cashier">
+                        <Label alignment="CENTER" layoutX="220.0" layoutY="281.0" text="Manager">
                            <font>
                               <Font name="System Bold" size="36.0" />
                            </font>
@@ -51,4 +51,4 @@
          </children>
       </AnchorPane>
    </children>
-</StackPane>
+</fx:root>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1024.0" type="StackPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="g.s.m.s.FXMLDocumentController">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <AnchorPane layoutX="13.0" layoutY="18.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <AnchorPane layoutX="33.0" layoutY="33.0" prefHeight="720.0" prefWidth="291.0" style="-fx-background-color: #2D4AE3;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label fx:id="Manager_Dashbord_btn" alignment="CENTER" layoutX="84.0" layoutY="235.0" text="Manager">
+                           <font>
+                              <Font name="System Bold" size="36.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="SignOut_btn" layoutX="82.0" layoutY="641.0" mnemonicParsing="false" style="-fx-background-color: #2D4AE3;" text="Sign out" textFill="WHITE">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="Manager_AddProduct_btn" layoutX="102.0" layoutY="527.0" mnemonicParsing="false" style="-fx-background-color: #2D4AE3;" text="Add Product" textFill="WHITE" AnchorPane.leftAnchor="92.0">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="Manager_AddCashier_btn" layoutX="102.0" layoutY="456.0" mnemonicParsing="false" style="-fx-background-color: #2D4AE3;" text="Add Cashier" textFill="WHITE" AnchorPane.leftAnchor="92.0">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="Manager_Dashbord_btn" layoutX="102.0" layoutY="386.0" mnemonicParsing="false" style="-fx-background-color: transperant; -fx-border-color: #FFF; -fx-border-width: 0px 0px 3px 0px;" text="Dashbord" textFill="WHITE" AnchorPane.leftAnchor="92.0">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="791.0" layoutY="33.0" prefHeight="720.0" prefWidth="736.0" style="-fx-background-color: #7A95D8;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <AnchorPane prefHeight="283.0" prefWidth="736.0" style="-fx-background-color: #0f57fb;" AnchorPane.bottomAnchor="437.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="33.0" layoutY="42.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FFF;" AnchorPane.leftAnchor="33.0">
+                                 <children>
+                                    <Label layoutX="44.0" layoutY="157.0" text="Cashiers">
+                                       <font>
+                                          <Font name="System Bold" size="29.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="Manager_Cashier_lab" layoutX="83.0" layoutY="86.0" text="0">
+                                       <font>
+                                          <Font size="64.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="493.0" layoutY="42.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FFF;" AnchorPane.rightAnchor="33.0">
+                                 <children>
+                                    <Label fx:id="Manager_MonthlyIncome_lab" alignment="CENTER" layoutX="12.0" layoutY="122.0" prefHeight="43.0" prefWidth="177.0" text="0.00" textAlignment="CENTER">
+                                       <font>
+                                          <Font size="29.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="87.0" layoutY="79.0" text="Rs">
+                                       <font>
+                                          <Font name="System Bold" size="29.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="8.0" layoutY="165.0" text="Monthly income">
+                                       <font>
+                                          <Font name="System Bold" size="24.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="268.0" layoutY="42.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FFF;">
+                                 <children>
+                                    <Label layoutX="12.0" layoutY="157.0" text="Daily income">
+                                       <font>
+                                          <Font name="System Bold" size="29.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="84.0" layoutY="79.0" text="Rs">
+                                       <font>
+                                          <Font name="System Bold" size="29.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="Manager_DailyIncome_lab" alignment="CENTER" layoutX="9.0" layoutY="122.0" prefHeight="43.0" prefWidth="177.0" text="0.00" textAlignment="CENTER">
+                                       <font>
+                                          <Font size="29.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="536.0" layoutY="277.0" prefHeight="443.0" prefWidth="736.0" style="-fx-background-color: #0f57fb;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="277.0">
+                           <children>
+                              <AreaChart fx:id="Manager_AreaChart" layoutX="21.0" layoutY="22.0" prefHeight="400.0" prefWidth="695.0">
+                                <xAxis>
+                                  <CategoryAxis side="BOTTOM" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis side="LEFT" />
+                                </yAxis>
+                              </AreaChart>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</fx:root>
