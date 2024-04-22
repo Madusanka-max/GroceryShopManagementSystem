@@ -10,20 +10,23 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 .backgroundpanal1{
     -fx-background-color:linear-gradient(to top right, #19297D, #2D4AE3);
 }
-.backgroundpanal2{
-    -fx-background-color:linear-gradient(to top right, #7A95D8, #6185D1);       
-    -fx-border-color:#000;
-    -fx-border-width :.4px 0px .4px .4px; 
+
+.background-btn{
+    -fx-background-color:linear-gradient(to top right, #7A95D8, #6185D1);
+}
+
+.background-btn:hover{
+    -fx-background-color:linear-gradient(to top right, #3d85cc, #295986);
 }
 
 .textfield{
--fx-background-color:linear-gradient(to bottom,  #7A95D8, #6185D1);
--fx-background-radius: 8px;
--fx-border-color:#000;
--fx-border-width:0px 0px .8px 0px;
--fx-font-family:"Tahoma";
--fx-font-size:24px;
--fx-border-radius:8px
+    -fx-background-color:linear-gradient(to bottom,  #7A95D8, #6185D1);
+    -fx-background-radius: 8px;
+    -fx-border-color:#000;
+    -fx-border-width:0px 0px .8px 0px;
+    -fx-font-family:"Tahoma";
+    -fx-font-size:24px;
+    -fx-border-radius:8px
 }
 
 .textfield:focused{
@@ -32,18 +35,23 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 }
 
 .login-btn{
--fx-background-color:linear-gradient(to top right, #19297D, #2D4AE3);
--fx-background-radíus: 8px;
--fx-cursor:hand;
--fx-text-fill:#fff;
--fx-font-family:"Arial";
--fx-font-size: 24px;
+    -fx-background-color:linear-gradient(to top right, #19297D, #2D4AE3);
+    -fx-background-radíus: 8px;
+    -fx-cursor:hand;
+    -fx-text-fill:#fff;
+    -fx-font-family:"Arial";
+    -fx-font-size: 24px;
 }
 .login-btn:hover{
--fx-background-color:linear-gradient(to top right, #3d85cc, #295986);
+    -fx-background-color:linear-gradient(to top right, #3d85cc, #295986);
 }
 
+.close-btn{
+    -fx-background-color:transparent;
+}
 
-
-
-
+.close-btn:hover{
+    -fx-background-color:linear-gradient(to top, #ff0000, #e7b0b0);
+    -fx-border-width:0px 0px 1.8px 0px;
+    -fx-background-radíus: 15px;
+}
