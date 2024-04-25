@@ -20,7 +20,7 @@
                         <Font name="Arial Bold" size="48.0" />
                      </font>
                   </Button>
-                  <ImageView fitHeight="330.0" fitWidth="306.0" layoutX="107.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="107.0" AnchorPane.topAnchor="207.0">
+                  <ImageView fx:id="Home_Cashier_btn" fitHeight="330.0" fitWidth="306.0" layoutX="107.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="107.0" AnchorPane.topAnchor="207.0">
                      <image>
                         <Image url="@../../icon/cashier.png" />
                      </image>
@@ -30,7 +30,7 @@
                         <Font name="System Bold" size="48.0" />
                      </font>
                   </Button>
-                  <ImageView fitHeight="330.0" fitWidth="306.0" layoutX="611.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="207.0" AnchorPane.rightAnchor="107.0" AnchorPane.topAnchor="207.0">
+                  <ImageView fx:id="Home_Manager_btn" fitHeight="330.0" fitWidth="306.0" layoutX="611.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="207.0" AnchorPane.rightAnchor="107.0" AnchorPane.topAnchor="207.0">
                      <image>
                         <Image url="@../../icon/manager.png" />
                      </image>

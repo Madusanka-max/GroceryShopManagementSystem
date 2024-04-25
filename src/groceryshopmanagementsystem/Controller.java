@@ -58,15 +58,15 @@ public class Controller implements Initializable {
 
     
     
-    
+   
    @FXML
-    private void handleLoginButtonAction(ActionEvent event) {
+    private void ManagerLoginLoginbtn(ActionEvent event) {
         String username = ManagerLogin_Username_textField.getText();
         String password = ManagerLogin_password_textField.getText();
 
         if (database.checkLogin(username, password)) {
             // Redirect to the main application or dashboard
-        } else {
+       } else {
             showErrorAlert("Invalid Login", "Please enter a valid username and password.");
         }
     }
@@ -82,12 +82,16 @@ public class Controller implements Initializable {
     public void close(){
         System.exit(0);
     }
-   
+  
+
+    
     
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+
+        
+    }
     
 }
