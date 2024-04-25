@@ -48,7 +48,7 @@
                         </PasswordField>
                         <Button fx:id="ManagerLogin_Login_btn" layoutX="245.0" layoutY="570.0" mnemonicParsing="false" styleClass="login-btn" stylesheets="@LoginCSS.css" text="Login">
                            <font>
-                              <Font size="24.0" />
+                              <Font name="Arial" size="24.0" />
                            </font>
                         </Button>
                         <Label alignment="CENTER" layoutX="165.0" layoutY="286.0" text="Manager">
