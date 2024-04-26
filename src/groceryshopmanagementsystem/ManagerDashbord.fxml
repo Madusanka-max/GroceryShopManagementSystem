@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.chart.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
@@ -16,27 +17,32 @@
                <children>
                   <AnchorPane layoutX="33.0" layoutY="33.0" prefHeight="720.0" prefWidth="291.0" style="-fx-background-color: #2D4AE3;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Label fx:id="Manager_Dashbord_btn" alignment="CENTER" layoutX="84.0" layoutY="235.0" text="Manager">
+                        <Label fx:id="Manager_Dashbord_btn" alignment="CENTER" layoutX="47.0" layoutY="258.0" text="Manager">
                            <font>
-                              <Font name="System Bold" size="36.0" />
+                              <Font name="Arial Bold" size="48.0" />
                            </font>
                         </Label>
-                        <Button fx:id="SignOut_btn" layoutX="82.0" layoutY="641.0" mnemonicParsing="false" style="-fx-background-color: #2D4AE3;" text="Sign out" textFill="WHITE">
+                        <ImageView fitHeight="208.0" fitWidth="200.0" layoutX="46.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../icon/manager.png" />
+                           </image>
+                        </ImageView>
+                        <Button fx:id="Manager_Dashbord_btn1" layoutX="78.0" layoutY="400.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="168.0" style="-fx-background-color: transperant;" text="Dashbord" textFill="WHITE" AnchorPane.leftAnchor="78.0" AnchorPane.topAnchor="400.0">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </Button>
-                        <Button fx:id="Manager_AddProduct_btn" layoutX="102.0" layoutY="527.0" mnemonicParsing="false" style="-fx-background-color: #2D4AE3;" text="Add Product" textFill="WHITE" AnchorPane.leftAnchor="92.0">
+                        <ImageView fitHeight="35.0" fitWidth="49.0" layoutX="61.0" layoutY="410.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="410.0">
+                           <image>
+                              <Image url="@../../icon/dashboard.png" />
+                           </image>
+                        </ImageView>
+                        <Button fx:id="Manager_AddCashier_btn" layoutX="78.0" layoutY="471.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="168.0" style="-fx-background-color: #2D4AE3;" text="Add Cashier" textFill="WHITE">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </Button>
-                        <Button fx:id="Manager_AddCashier_btn" layoutX="102.0" layoutY="456.0" mnemonicParsing="false" style="-fx-background-color: #2D4AE3;" text="Add Cashier" textFill="WHITE" AnchorPane.leftAnchor="92.0">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </Button>
-                        <Button fx:id="Manager_Dashbord_btn" layoutX="102.0" layoutY="386.0" mnemonicParsing="false" style="-fx-background-color: transperant; -fx-border-color: #FFF; -fx-border-width: 0px 0px 3px 0px;" text="Dashbord" textFill="WHITE" AnchorPane.leftAnchor="92.0">
+                        <Button fx:id="Manager_AddProduct_btn" layoutX="78.0" layoutY="539.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="168.0" style="-fx-background-color: #2D4AE3;" text="Add Product" textFill="WHITE">
                            <font>
                               <Font size="24.0" />
                            </font>
@@ -115,6 +121,11 @@
                         </AnchorPane>
                      </children>
                   </AnchorPane>
+                  <Button fx:id="SignOut_btn" layoutX="92.0" layoutY="651.0" mnemonicParsing="false" style="-fx-background-color: #2D4AE3;" text="Sign out" textFill="WHITE">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Button>
                </children>
             </AnchorPane>
          </children>
