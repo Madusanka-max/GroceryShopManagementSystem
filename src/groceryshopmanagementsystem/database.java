@@ -22,7 +22,8 @@ public class database {
 		try ( // Open a connection
 			Connection con = DriverManager.getConnection(dbURL, username, password)) {
 			// Create a statement
-			Statement state = con.createStatement();
+			@SuppressWarnings("unused")
+            Statement state = con.createStatement();
 			// Print connected message
 			System.out.println("Connected to the database");
 			// Close the connection
