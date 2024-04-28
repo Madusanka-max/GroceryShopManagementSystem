@@ -23,10 +23,10 @@
                         </Label>
                         <ImageView fitHeight="312.0" fitWidth="493.0" layoutX="66.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../icon/png/001-supermaket.png" />
+                              <Image url="@Icon/001-supermaket.png" />
                            </image>
                         </ImageView>
-                        <Button fx:id="back_btn" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: transpetrant;" stylesheets="@LoginCSS.css" text="&lt;" textFill="WHITE">
+                        <Button fx:id="back_btn" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#goBack" styleClass="back-btn" stylesheets="@LoginCSS.css" text="&lt;" textFill="WHITE">
                            <font>
                               <Font name="Arial Bold Italic" size="24.0" />
                            </font>
@@ -57,7 +57,7 @@
                         </PasswordField>
                         <ImageView fitHeight="203.0" fitWidth="223.0" layoutX="191.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../icon/cashier.png" />
+                              <Image url="@Icon/cashier.png" />
                            </image>
                         </ImageView>
                         <Button fx:id="close_btn" cancelButton="true" layoutX="529.0" layoutY="17.0" mnemonicParsing="false" onAction="#close" prefHeight="43.0" prefWidth="47.0" styleClass="close-btn" stylesheets="@LoginCSS.css" text="X" textFill="WHITE" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">

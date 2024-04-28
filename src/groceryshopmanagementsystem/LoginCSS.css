@@ -55,3 +55,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-border-width:0px 0px 1.8px 0px;
     -fx-background-radíus: 15px;
 }
+
+.back-btn{
+    -fx-background-color:transparent;
+}
+
+.back-btn:hover{
+    -fx-background-color:linear-gradient(to top, #295986, #97b8d8);
+    -fx-border-width:0px 0px 1.8px 0px;
+    -fx-background-radíus: 15px;
+}

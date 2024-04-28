@@ -14,6 +14,13 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import java.io.IOException;
+import javafx.scene.Node;
+
 
 /**
  *
@@ -58,19 +65,41 @@ public class Controller implements Initializable {
 
     
     
-   
-   @FXML
-    private void ManagerLoginLoginbtn(ActionEvent event) {
-        String username = ManagerLogin_Username_textField.getText();
-        String password = ManagerLogin_password_textField.getText();
 
-        if (database.checkLogin(username, password)) {
-            // Redirect to the main application or dashboard
-       } else {
-            showErrorAlert("Invalid Login", "Please enter a valid username and password.");
+    @FXML
+    private void goToManagerLogin(ActionEvent event) {
+        // Handle navigation to manager login screen
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ManagerLogin.fxml"));
+            Parent root = loader.load();
+
+            // Get the stage from the event source
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
+    @FXML
+    private void goToCashierLogin(ActionEvent event) {
+        // Handle navigation to cashier login screen
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("CashierLogin.fxml"));
+            Parent root = loader.load();
+
+            // Get the stage from the event source
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
+
+    @SuppressWarnings("unused")
     private void showErrorAlert(String title, String message) {
         Alert alert = new Alert(AlertType.ERROR);
         alert.setTitle(title);
@@ -79,6 +108,17 @@ public class Controller implements Initializable {
         alert.showAndWait();
     }
     
+
+    @FXML
+    private void goBack(ActionEvent event) throws IOException {
+        Parent previousRoot = FXMLLoader.load(getClass().getResource("index.fxml"));
+        Scene scene = new Scene(previousRoot);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
     public void close(){
         System.exit(0);
     }

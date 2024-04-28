@@ -15,24 +15,24 @@
          <children>
             <AnchorPane layoutX="77.0" layoutY="73.0" prefHeight="720.0" prefWidth="1024.0" styleClass="backgroundpanal1" stylesheets="@LoginCSS.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Button fx:id="Home_Cashier_btn" alignment="BOTTOM_CENTER" layoutX="60.0" layoutY="116.0" mnemonicParsing="false" prefHeight="500.0" prefWidth="400.0" styleClass="background-btn" stylesheets="@LoginCSS.css" text="Cashier" textAlignment="CENTER" AnchorPane.bottomAnchor="110.0" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="110.0">
+                  <Button fx:id="Home_Cashier_btn" alignment="BOTTOM_CENTER" layoutX="60.0" layoutY="116.0" mnemonicParsing="false" onAction="#goToCashierLogin" prefHeight="500.0" prefWidth="400.0" styleClass="background-btn" stylesheets="@LoginCSS.css" text="Cashier" textAlignment="CENTER" AnchorPane.bottomAnchor="110.0" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="110.0">
                      <font>
                         <Font name="Arial Bold" size="48.0" />
                      </font>
                   </Button>
-                  <ImageView fx:id="Home_Cashier_btn" fitHeight="330.0" fitWidth="306.0" layoutX="107.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="107.0" AnchorPane.topAnchor="207.0">
+                  <ImageView fitHeight="330.0" fitWidth="306.0" layoutX="107.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="107.0" AnchorPane.topAnchor="207.0">
                      <image>
-                        <Image url="@../../icon/cashier.png" />
+                        <Image url="@Icon/cashier.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="Home_Manager_btn" alignment="BOTTOM_CENTER" layoutX="561.0" layoutY="110.0" mnemonicParsing="false" prefHeight="500.0" prefWidth="400.0" styleClass="background-btn" stylesheets="@LoginCSS.css" text="Manager" textAlignment="CENTER" AnchorPane.bottomAnchor="110.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="110.0">
+                  <Button fx:id="Home_Manager_btn" alignment="BOTTOM_CENTER" layoutX="561.0" layoutY="110.0" mnemonicParsing="false" onAction="#goToCashierLogin" prefHeight="500.0" prefWidth="400.0" styleClass="background-btn" stylesheets="@LoginCSS.css" text="Manager" textAlignment="CENTER" AnchorPane.bottomAnchor="110.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="110.0">
                      <font>
                         <Font name="System Bold" size="48.0" />
                      </font>
                   </Button>
-                  <ImageView fx:id="Home_Manager_btn" fitHeight="330.0" fitWidth="306.0" layoutX="611.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="207.0" AnchorPane.rightAnchor="107.0" AnchorPane.topAnchor="207.0">
+                  <ImageView fitHeight="330.0" fitWidth="306.0" layoutX="611.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="207.0" AnchorPane.rightAnchor="107.0" AnchorPane.topAnchor="207.0">
                      <image>
-                        <Image url="@../../icon/manager.png" />
+                        <Image url="@Icon/manager.png" />
                      </image>
                   </ImageView>
                </children>
