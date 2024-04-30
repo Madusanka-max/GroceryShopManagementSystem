@@ -40,7 +40,7 @@
                               <Font name="Arial Bold" size="64.0" />
                            </font>
                         </Label>
-                        <Button fx:id="CashierLogin_Login_btn" layoutX="247.0" layoutY="577.0" mnemonicParsing="false" styleClass="login-btn" stylesheets="@LoginCSS.css" text="Login">
+                        <Button fx:id="CashierLogin_Login_btn" layoutX="247.0" layoutY="577.0" mnemonicParsing="false" onAction="#CashierLoginLoginbtn" styleClass="login-btn" stylesheets="@LoginCSS.css" text="Login">
                            <font>
                               <Font size="24.0" />
                            </font>

@@ -25,7 +25,7 @@
                         <Image url="@Icon/cashier.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="Home_Manager_btn" alignment="BOTTOM_CENTER" layoutX="561.0" layoutY="110.0" mnemonicParsing="false" onAction="#goToCashierLogin" prefHeight="500.0" prefWidth="400.0" styleClass="background-btn" stylesheets="@LoginCSS.css" text="Manager" textAlignment="CENTER" AnchorPane.bottomAnchor="110.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="110.0">
+                  <Button fx:id="Home_Manager_btn" alignment="BOTTOM_CENTER" layoutX="561.0" layoutY="110.0" mnemonicParsing="false" onAction="#goToManagerLogin" prefHeight="500.0" prefWidth="400.0" styleClass="background-btn" stylesheets="@LoginCSS.css" text="Manager" textAlignment="CENTER" AnchorPane.bottomAnchor="110.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="110.0">
                      <font>
                         <Font name="System Bold" size="48.0" />
                      </font>

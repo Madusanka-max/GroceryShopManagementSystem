@@ -12,7 +12,7 @@ public class database {
 
     // Establish database connection
     public static void connect() {
-        String dbURL = "jdbc:mysql://localhost:3306/DBMS";
+        String dbURL = "jdbc:mysql://localhost/DBMS";
         String username = "root";
         String password = "";
 
@@ -27,7 +27,7 @@ public class database {
 
     // Check login credentials for manager
     public static boolean checkManagerLogin(String username, String password) {
-        String query = "SELECT * FROM managers WHERE username = ? AND password = ?";
+        String query = "SELECT * FROM manager WHERE username = ? AND password = ?";
 
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setString(1, username);
@@ -42,7 +42,7 @@ public class database {
 
     // Check login credentials for cashier
     public static boolean checkCashierLogin(String username, String password) {
-        String query = "SELECT * FROM cashiers WHERE username = ? AND password = ?";
+        String query = "SELECT * FROM cashier WHERE username = ? AND password = ?";
 
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setString(1, username);
