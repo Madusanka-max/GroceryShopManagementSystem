@@ -122,7 +122,7 @@ public class Controller implements Initializable {
     String username = CashierLogin_Username_textField.getText();
     String password = CashierLogin_password_textField.getText();
     
-    if (database.checkCashierLogin(username, password)) {
+    if (database.checkManagerLogin(username, password)) {
         // Redirect to dashboard.fxml
         FXMLLoader loader = new FXMLLoader(getClass().getResource("CashierDasbord.fxml"));
         Parent dashboardRoot = loader.load();
