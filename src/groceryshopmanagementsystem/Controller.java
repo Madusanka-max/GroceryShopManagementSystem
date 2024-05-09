@@ -72,7 +72,7 @@ public class Controller implements Initializable {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("ManagerLogin.fxml"));
             Parent root = loader.load();
-
+            
             // Get the stage from the event source
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
