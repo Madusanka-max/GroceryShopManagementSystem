@@ -5,6 +5,9 @@
 package groceryshopmanagementsystem;
 
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -98,43 +101,88 @@ public class Controller implements Initializable {
         }
     }
     
-    @FXML
-    private void ManagerLoginLoginbtn(ActionEvent event) throws IOException {
-    String username = ManagerLogin_Username_textField.getText();
-    String password = ManagerLogin_password_textField.getText();
-    
-    if (database.checkManagerLogin(username, password)) {
-        // Redirect to dashboard.fxml
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("ManagerDashbord.fxml"));
-        Parent dashboardRoot = loader.load();
-        Scene scene = new Scene(dashboardRoot);
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
-        } else {
-        // Display error alert
-        showErrorAlert("Invalid Login", "Please enter a valid username and password.");
+    //Database 
+
+    private Connection connect;
+    private ResultSet result;
+    private PreparedStatement prepare;
+
+    public void managerlogin(){
+        String managerData = "SELECT * FROM manager WHERE username=? and Password=?";
+        connect = database.connectdb();
+
+        try {
+            //check textfilds are empty or not
+            if (ManagerLogin_Username_textField.getText().isEmpty() || ManagerLogin_password_textField.getText().isEmpty()) {
+                showErrorAlert("Error Message","Please Fill all Fields");
+            }else{
+                prepare = connect.prepareStatement(managerData);
+                prepare.setString(1, ManagerLogin_Username_textField.getText());
+                prepare.setString(2, ManagerLogin_password_textField.getText());
+                result = prepare.executeQuery();
+
+                if (result.next()) {
+                    showErrorAlert("Success Message","Successfully Login!");
+
+
+                    ManagerLogin_Login_btn.getScene().getWindow().hide();
+
+                    Parent root = FXMLLoader.load(getClass().getResource("ManagerDashbord.fxml"));
+                    Stage stage = new Stage();
+                    Scene scene = new Scene (root) ;
+                    stage.setScene(scene) ;
+                    stage.show();
+                }else{
+                    showErrorAlert("Error Message","Wrong Username or Password");
+                }
+
+            }
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+
     }
 
-    @FXML
-    private void CashierLoginLoginbtn(ActionEvent event) throws IOException {
-    String username = CashierLogin_Username_textField.getText();
-    String password = CashierLogin_password_textField.getText();
+
+    // @FXML
+    // private void ManagerLoginLoginbtn(ActionEvent event) throws IOException {
+    // String username = ManagerLogin_Username_textField.getText();
+    // String password = ManagerLogin_password_textField.getText();
     
-    if (database.checkManagerLogin(username, password)) {
-        // Redirect to dashboard.fxml
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("CashierDasbord.fxml"));
-        Parent dashboardRoot = loader.load();
-        Scene scene = new Scene(dashboardRoot);
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
-        } else {
-        // Display error alert
-        showErrorAlert("Invalid Login", "Please enter a valid username and password.");
-        }
-    }
+    // if (database.checkManagerLogin(username, password)) {
+    //     // Redirect to dashboard.fxml
+    //     FXMLLoader loader = new FXMLLoader(getClass().getResource("ManagerDashbord.fxml"));
+    //     Parent dashboardRoot = loader.load();
+    //     Scene scene = new Scene(dashboardRoot);
+    //     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    //     stage.setScene(scene);
+    //     stage.show();
+    //     } else {
+    //     // Display error alert
+    //     showErrorAlert("Invalid Login", "Please enter a valid username and password.");
+    //     }
+    // }
+
+    // @FXML
+    // private void CashierLoginLoginbtn(ActionEvent event) throws IOException {
+    // String username = CashierLogin_Username_textField.getText();
+    // String password = CashierLogin_password_textField.getText();
+    
+    // if (database.checkManagerLogin(username, password)) {
+    //     // Redirect to dashboard.fxml
+    //     FXMLLoader loader = new FXMLLoader(getClass().getResource("CashierDasbord.fxml"));
+    //     Parent dashboardRoot = loader.load();
+    //     Scene scene = new Scene(dashboardRoot);
+    //     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    //     stage.setScene(scene);
+    //     stage.show();
+    //     } else {
+    //     // Display error alert
+    //     showErrorAlert("Invalid Login", "Please enter a valid username and password.");
+    //     }
+    // }
 
 
 

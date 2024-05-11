@@ -8,17 +8,19 @@ import java.sql.SQLException;
 
 public class database {
     
-    private static Connection connection;
+    
 
         // Establish database connection
-        public static void connect() {
+        public static Connection connectdb() {
             try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
-                connection = DriverManager.getConnection("jdbc:mysql://localhost/DBMS","root","");
-                System.out.println("Connected to the database");
+                Connection connect = DriverManager.getConnection("jdbc:mysql://localhost/DBMS","root","");
+                return connect;
             } catch (Exception e) {
                 e.printStackTrace();
             }
+
+        return null;
         }
 
     // Check login credentials for manager
