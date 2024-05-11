@@ -14,7 +14,7 @@ public class database {
         public static Connection connectdb() {
             try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
-                Connection connect = DriverManager.getConnection("jdbc:mysql://localhost/DBMS","root","");
+                Connection connect = DriverManager.getConnection("jdbc:mysql://localhost/gsms","root","");
                 return connect;
             } catch (Exception e) {
                 e.printStackTrace();

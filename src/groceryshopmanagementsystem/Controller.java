@@ -124,7 +124,6 @@ public class Controller implements Initializable {
                 if (result.next()) {
                     showErrorAlert("Success Message","Successfully Login!");
 
-
                     ManagerLogin_Login_btn.getScene().getWindow().hide();
 
                     Parent root = FXMLLoader.load(getClass().getResource("ManagerDashbord.fxml"));
