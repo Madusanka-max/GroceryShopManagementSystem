@@ -33,17 +33,17 @@
                   </AnchorPane>
                   <AnchorPane layoutX="791.0" layoutY="33.0" prefHeight="720.0" prefWidth="585.0" style="-fx-background-color: #7A95D8;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="440.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Button fx:id="ManagerLogin_Login_btn" layoutX="247.0" layoutY="577.0" mnemonicParsing="false" onAction="#ManagerLoginLoginbtn" styleClass="login-btn" stylesheets="@LoginCSS.css" text="Login">
+                        <Button fx:id="ManagerLogin_Login_btn" layoutX="247.0" layoutY="577.0" mnemonicParsing="false" onAction="#managerlogin" styleClass="login-btn" stylesheets="@LoginCSS.css" text="Login">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </Button>
-                        <TextField fx:id="ManagerLogin_Username_textField" layoutX="149.0" layoutY="402.0" promptText="Username" styleClass="textfield" stylesheets="@LoginCSS.css">
+                        <TextField fx:id="ManagerLogin_Username_textField" layoutX="149.0" layoutY="402.0" onAction="#managerlogin" promptText="Username" styleClass="textfield" stylesheets="@LoginCSS.css">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </TextField>
-                        <PasswordField fx:id="ManagerLogin_password_textField" layoutX="149.0" layoutY="490.0" promptText="Password" styleClass="textfield" stylesheets="@LoginCSS.css">
+                        <PasswordField fx:id="ManagerLogin_password_textField" layoutX="149.0" layoutY="490.0" onAction="#managerlogin" promptText="Password" styleClass="textfield" stylesheets="@LoginCSS.css">
                            <font>
                               <Font size="24.0" />
                            </font>
