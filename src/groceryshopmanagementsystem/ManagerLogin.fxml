@@ -33,7 +33,7 @@
                   </AnchorPane>
                   <AnchorPane layoutX="791.0" layoutY="33.0" prefHeight="720.0" prefWidth="585.0" style="-fx-background-color: #7A95D8;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="440.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Button fx:id="ManagerLogin_Login_btn" layoutX="247.0" layoutY="577.0" mnemonicParsing="false" styleClass="login-btn" stylesheets="@LoginCSS.css" text="Login">
+                        <Button fx:id="ManagerLogin_Login_btn" layoutX="247.0" layoutY="577.0" mnemonicParsing="false" onAction="#ManagerLoginLoginbtn" styleClass="login-btn" stylesheets="@LoginCSS.css" text="Login">
                            <font>
                               <Font size="24.0" />
                            </font>
