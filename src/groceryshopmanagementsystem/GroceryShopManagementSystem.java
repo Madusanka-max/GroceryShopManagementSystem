@@ -61,6 +61,8 @@ public class GroceryShopManagementSystem extends Application {
 
     public static void main(String[] args) {
         launch(args);
+
+        
     }
     
 }

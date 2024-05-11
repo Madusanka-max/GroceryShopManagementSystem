@@ -10,20 +10,16 @@ public class database {
     
     private static Connection connection;
 
-    // Establish database connection
-    public static void connect() {
-        String dbURL = "jdbc:mysql://localhost/DBMS";
-        String username = "root";
-        String password = "";
-
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection(dbURL, username, password);
-            System.out.println("Connected to the database");
-        } catch (Exception e) {
-            e.printStackTrace();
+        // Establish database connection
+        public static void connect() {
+            try {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                connection = DriverManager.getConnection("jdbc:mysql://localhost/DBMS","root","");
+                System.out.println("Connected to the database");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
-    }
 
     // Check login credentials for manager
     public static boolean checkManagerLogin(String username, String password) {
@@ -67,3 +63,4 @@ public class database {
         }
     }
 }
+
