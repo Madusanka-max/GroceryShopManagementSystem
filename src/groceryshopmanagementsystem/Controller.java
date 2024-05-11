@@ -144,6 +144,42 @@ public class Controller implements Initializable {
 
     }
 
+    public void Cashierlogin(){
+        String cashierData = "SELECT * FROM cashier WHERE username=? and Password=?";
+        connect = database.connectdb();
+
+        try {
+            //check textfilds are empty or not
+            if (CashierLogin_Username_textField.getText().isEmpty() || CashierLogin_password_textField.getText().isEmpty()) {
+                showErrorAlert("Error Message","Please Fill all Fields");
+            }else{
+                prepare = connect.prepareStatement(cashierData);
+                prepare.setString(1, CashierLogin_Username_textField.getText());
+                prepare.setString(2, CashierLogin_password_textField.getText());
+                result = prepare.executeQuery();
+
+                if (result.next()) {
+                    showErrorAlert("Success Message","Successfully Login!");
+
+                    CashierLogin_Login_btn.getScene().getWindow().hide();
+
+                    Parent root = FXMLLoader.load(getClass().getResource("CashierDasbord.fxml"));
+                    Stage stage = new Stage();
+                    Scene scene = new Scene (root) ;
+                    stage.setScene(scene) ;
+                    stage.show();
+                }else{
+                    showErrorAlert("Error Message","Wrong Username or Password");
+                }
+
+            }
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
 
     // @FXML
     // private void ManagerLoginLoginbtn(ActionEvent event) throws IOException {
