@@ -40,56 +40,56 @@
                <children>
                   <AnchorPane prefHeight="454.0" prefWidth="736.0" AnchorPane.bottomAnchor="260.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <TableView fx:id="Cashier_table" layoutX="14.0" layoutY="14.0" prefHeight="441.0" prefWidth="713.0">
+                        <TableView fx:id="Cashier_table" layoutX="6.0" layoutY="6.0" prefHeight="479.0" prefWidth="724.0">
                            <columns>
-                              <TableColumn prefWidth="252.0" text="Brand Name" />
-                              <TableColumn prefWidth="243.0" text="Product Name" />
-                              <TableColumn prefWidth="70.0" text="Quantity" />
-                              <TableColumn prefWidth="147.0" text="Price" />
+                              <TableColumn fx:id="Cashier_table_BrandName" prefWidth="261.0" text="Brand Name" />
+                              <TableColumn fx:id="Cashier_table_ProductName" prefWidth="247.0" text="Product Name" />
+                              <TableColumn fx:id="Cashier_table_Quantity" prefWidth="88.0" text="Quantity" />
+                              <TableColumn fx:id="Cashier_table_Price" prefWidth="127.0" text="Price" />
                            </columns>
                         </TableView>
                      </children>
                   </AnchorPane>
-                  <AnchorPane layoutX="536.0" layoutY="460.0" prefHeight="260.0" prefWidth="736.0" style="-fx-background-color: #0f57fb;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="460.0">
+                  <AnchorPane layoutX="536.0" layoutY="489.0" prefHeight="246.0" prefWidth="736.0" style="-fx-background-color: #0f57fb;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="489.0">
                      <children>
-                        <Button fx:id="Cashier_add_btn" layoutX="73.0" layoutY="195.0" mnemonicParsing="false" style="-fx-background-color: #2D4AE3;" text="ADD" textFill="WHITE">
+                        <Button fx:id="Cashier_add_btn" layoutX="75.0" layoutY="166.0" mnemonicParsing="false" style="-fx-background-color: #2D4AE3;" text="ADD" textFill="WHITE">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </Button>
-                        <Button fx:id="Cashier_delete_btn" layoutX="241.0" layoutY="195.0" mnemonicParsing="false" style="-fx-background-color: #2D4AE3;" text="Delete" textFill="WHITE">
+                        <Button fx:id="Cashier_delete_btn" layoutX="241.0" layoutY="166.0" mnemonicParsing="false" style="-fx-background-color: #2D4AE3;" text="Delete" textFill="WHITE">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </Button>
-                        <Button fx:id="Cashier_pay_btn" layoutX="576.0" layoutY="195.0" mnemonicParsing="false" style="-fx-background-color: #2D4AE3;" text="PAY" textFill="WHITE">
+                        <Button fx:id="Cashier_pay_btn" layoutX="576.0" layoutY="166.0" mnemonicParsing="false" style="-fx-background-color: #2D4AE3;" text="PAY" textFill="WHITE">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </Button>
-                        <TextField fx:id="Cashier_ProductId_textfield" layoutX="155.0" layoutY="58.0" prefHeight="31.0" prefWidth="187.0" />
-                        <TextField fx:id="Cashier_Quantity_textfield" layoutX="155.0" layoutY="130.0" />
-                        <Label alignment="CENTER" layoutX="570.0" layoutY="21.0" text="Total" textFill="WHITE">
+                        <TextField fx:id="Cashier_ProductId_textfield" layoutX="155.0" layoutY="43.0" prefHeight="31.0" prefWidth="187.0" />
+                        <TextField fx:id="Cashier_Quantity_textfield" layoutX="155.0" layoutY="115.0" />
+                        <Label alignment="CENTER" layoutX="570.0" layoutY="6.0" text="Total" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="36.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER" layoutX="484.0" layoutY="84.0" text="Rs." textFill="WHITE">
+                        <Label alignment="CENTER" layoutX="484.0" layoutY="69.0" text="Rs." textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="36.0" />
                            </font>
                         </Label>
-                        <Label fx:id="Cashier_total_label" alignment="CENTER" layoutX="590.0" layoutY="93.0" text="0.00" textFill="WHITE">
+                        <Label fx:id="Cashier_total_label" alignment="CENTER" layoutX="590.0" layoutY="78.0" text="0.00" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER" layoutX="14.0" layoutY="56.0" text="Product Id :" textFill="WHITE">
+                        <Label alignment="CENTER" layoutX="14.0" layoutY="41.0" text="Product Id :" textFill="WHITE">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER" layoutX="34.0" layoutY="128.0" text="Quantity :" textFill="WHITE">
+                        <Label alignment="CENTER" layoutX="34.0" layoutY="113.0" text="Quantity :" textFill="WHITE">
                            <font>
                               <Font size="24.0" />
                            </font>
