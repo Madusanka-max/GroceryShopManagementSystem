@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="groceryshopmanagementsystem.Controller">
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
@@ -24,7 +24,7 @@
                         <Font size="24.0" />
                      </font>
                   </Button>
-                  <Button fx:id="Signout_btn" layoutX="82.0" layoutY="641.0" mnemonicParsing="false" style="-fx-background-color: #2D4AE3;" text="Sign out" textFill="WHITE">
+                  <Button fx:id="Signout_btn" layoutX="82.0" layoutY="641.0" mnemonicParsing="false" onAction="#goBack" styleClass="login-btn" stylesheets="@LoginCSS.css" text="Sign out" textFill="WHITE">
                      <font>
                         <Font size="24.0" />
                      </font>
