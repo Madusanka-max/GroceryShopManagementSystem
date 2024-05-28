@@ -7,9 +7,6 @@ import java.sql.DriverManager;
 //import java.sql.SQLException;
 
 public class database {
-    
-    
-
         // Establish database connection
         public static Connection connectdb() {
             try {
@@ -19,10 +16,7 @@ public class database {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
         return null;
-        }
-
-    
+        }    
 }
 

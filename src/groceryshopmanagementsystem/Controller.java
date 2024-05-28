@@ -65,17 +65,14 @@ public class Controller implements Initializable {
     @FXML
     private PasswordField ManagerLogin_password_textField;
 
-
     
-    
-
+    //Going to ManagerLogin
     @FXML
     private void goToManagerLogin(ActionEvent event) {
         // Handle navigation to manager login screen
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("ManagerLogin.fxml"));
             Parent root = loader.load();
-            
             // Get the stage from the event source
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
@@ -85,13 +82,13 @@ public class Controller implements Initializable {
         }
     }
 
+    //Going to CashierLogin
     @FXML
     private void goToCashierLogin(ActionEvent event) {
         // Handle navigation to cashier login screen
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("CashierLogin.fxml"));
             Parent root = loader.load();
-
             // Get the stage from the event source
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
@@ -106,11 +103,10 @@ public class Controller implements Initializable {
     private Connection connect;
     private ResultSet result;
     private PreparedStatement prepare;
-
+    //Manager Login Database
     public void managerlogin(){
         String managerData = "SELECT * FROM manager WHERE username=? and Password=?";
         connect = database.connectdb();
-
         try {
             //check textfilds are empty or not
             if (ManagerLogin_Username_textField.getText().isEmpty() || ManagerLogin_password_textField.getText().isEmpty()) {
@@ -120,10 +116,8 @@ public class Controller implements Initializable {
                 prepare.setString(1, ManagerLogin_Username_textField.getText());
                 prepare.setString(2, ManagerLogin_password_textField.getText());
                 result = prepare.executeQuery();
-
                 if (result.next()) {
                     showErrorAlert("Success Message","Successfully Login!");
-
                     ManagerLogin_Login_btn.getScene().getWindow().hide();
                     // Handle navigation to cashier Dashbord screen
                     Parent root = FXMLLoader.load(getClass().getResource("ManagerDashbord.fxml"));
@@ -138,9 +132,9 @@ public class Controller implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
+    //Cashier Login Database 
     public void Cashierlogin(){
         String cashierData = "SELECT * FROM cashier WHERE username=? and Password=?";
         connect = database.connectdb();
@@ -154,10 +148,8 @@ public class Controller implements Initializable {
                 prepare.setString(1, CashierLogin_Username_textField.getText());
                 prepare.setString(2, CashierLogin_password_textField.getText());
                 result = prepare.executeQuery();
-
                 if (result.next()) {
                     showErrorAlert("Success Message","Successfully Login!");
-
                     CashierLogin_Login_btn.getScene().getWindow().hide();
                     // Handle navigation to cashier Dashbord screen
                     Parent root = FXMLLoader.load(getClass().getResource("CashierDasbord.fxml"));
@@ -172,11 +164,9 @@ public class Controller implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
-
-
+    //Alert method
     private void showErrorAlert(String title, String message) {
         Alert alert = new Alert(AlertType.ERROR);
         alert.setTitle(title);
@@ -185,7 +175,7 @@ public class Controller implements Initializable {
         alert.showAndWait();
     }
     
-
+    //GoingBack Button method 
     @FXML
     private void goBack(ActionEvent event) throws IOException {
         Parent previousRoot = FXMLLoader.load(getClass().getResource("index.fxml"));
@@ -195,6 +185,7 @@ public class Controller implements Initializable {
         stage.show();
     }
 
+    //Close Button method
     @FXML
     public void close(){
         System.exit(0);
