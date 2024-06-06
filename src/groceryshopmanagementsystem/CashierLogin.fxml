@@ -14,7 +14,7 @@
          <children>
             <AnchorPane layoutX="13.0" layoutY="18.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <AnchorPane layoutX="33.0" layoutY="33.0" prefHeight="720.0" prefWidth="443.0" styleClass="backgroundpanal1" stylesheets="@LoginCSS.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="580.0" AnchorPane.topAnchor="0.0">
+                  <AnchorPane layoutX="33.0" layoutY="33.0" prefHeight="720.0" prefWidth="443.0" styleClass="backgroundpanal1" stylesheets="@CSS.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="580.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <Label layoutX="46.0" layoutY="507.0" text="Grocery Shop Management System" textFill="WHITE">
                            <font>
@@ -26,7 +26,7 @@
                               <Image url="@Icon/001-supermaket.png" />
                            </image>
                         </ImageView>
-                        <Button fx:id="back_btn" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#goBack" styleClass="back-btn" stylesheets="@LoginCSS.css" text="&lt;" textFill="WHITE">
+                        <Button fx:id="back_btn" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#goBack" styleClass="back-btn" stylesheets="@CSS.css" text="&lt;" textFill="WHITE">
                            <font>
                               <Font name="Arial Bold Italic" size="24.0" />
                            </font>
@@ -40,17 +40,17 @@
                               <Font name="Arial Bold" size="64.0" />
                            </font>
                         </Label>
-                        <Button fx:id="CashierLogin_Login_btn" layoutX="247.0" layoutY="577.0" mnemonicParsing="false" onAction="#Cashierlogin" styleClass="login-btn" stylesheets="@LoginCSS.css" text="Login">
+                        <Button fx:id="CashierLogin_Login_btn" layoutX="247.0" layoutY="577.0" mnemonicParsing="false" onAction="#Cashierlogin" styleClass="login-btn" stylesheets="@CSS.css" text="Login">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </Button>
-                        <TextField fx:id="CashierLogin_Username_textField" layoutX="149.0" layoutY="402.0" promptText="Username" styleClass="textfield" stylesheets="@LoginCSS.css">
+                        <TextField fx:id="CashierLogin_Username_textField" layoutX="149.0" layoutY="402.0" promptText="Username" styleClass="textfield" stylesheets="@CSS.css">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </TextField>
-                        <PasswordField fx:id="CashierLogin_password_textField" layoutX="149.0" layoutY="490.0" promptText="Password" styleClass="textfield" stylesheets="@LoginCSS.css">
+                        <PasswordField fx:id="CashierLogin_password_textField" layoutX="149.0" layoutY="490.0" promptText="Password" styleClass="textfield" stylesheets="@CSS.css">
                            <font>
                               <Font size="24.0" />
                            </font>
@@ -60,7 +60,7 @@
                               <Image url="@Icon/cashier.png" />
                            </image>
                         </ImageView>
-                        <Button fx:id="close_btn" cancelButton="true" layoutX="529.0" layoutY="17.0" mnemonicParsing="false" onAction="#close" prefHeight="43.0" prefWidth="47.0" styleClass="close-btn" stylesheets="@LoginCSS.css" text="X" textFill="WHITE" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                        <Button fx:id="close_btn" cancelButton="true" layoutX="529.0" layoutY="17.0" mnemonicParsing="false" onAction="#close" prefHeight="43.0" prefWidth="47.0" styleClass="close-btn" stylesheets="@CSS.css" text="X" textFill="WHITE" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                            <font>
                               <Font name="Arial Bold Italic" size="24.0" />
                            </font>

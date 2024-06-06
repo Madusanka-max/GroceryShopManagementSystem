@@ -9,7 +9,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="groceryshopmanagementsystem.Controller">
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
@@ -74,7 +73,7 @@
                   </AnchorPane>
                   <AnchorPane layoutX="536.0" layoutY="277.0" prefHeight="443.0" prefWidth="736.0" style="-fx-background-color: #0f57fb;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="277.0">
                      <children>
-                        <AreaChart fx:id="Manager_AreaChart" layoutX="21.0" layoutY="22.0" prefHeight="400.0" prefWidth="695.0">
+                        <AreaChart fx:id="Manager_AreaChart" layoutX="21.0" layoutY="22.0" prefHeight="400.0" prefWidth="695.0" AnchorPane.rightAnchor="20.0">
                            <xAxis>
                               <CategoryAxis side="BOTTOM" />
                            </xAxis>
@@ -86,14 +85,14 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="720.0" prefWidth="291.0" style="-fx-background-color: #2D4AE3;">
+            <AnchorPane prefHeight="720.0" prefWidth="291.0" style="-fx-background-color: #2D4AE3;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Label fx:id="Manager_Dashbord_btn" alignment="CENTER" layoutX="47.0" layoutY="258.0" text="Manager">
                      <font>
                         <Font name="Arial Bold" size="48.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="208.0" fitWidth="200.0" layoutX="46.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="208.0" fitWidth="200.0" layoutX="46.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="46.0">
                      <image>
                         <Image url="@../../icon/manager.png" />
                      </image>

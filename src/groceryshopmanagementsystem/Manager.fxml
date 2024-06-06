@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="groceryshopmanagementsystem.Controller">
+   <children>
+      <AnchorPane prefHeight="720.0" prefWidth="1024.0">
+         <children>
+            <BorderPane layoutX="345.0" layoutY="112.0" prefHeight="720.0" prefWidth="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <left>
+                  <AnchorPane prefHeight="680.0" prefWidth="252.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane layoutY="74.0" prefHeight="680.0" prefWidth="252.0" styleClass="backgroundpanal1" stylesheets="@CSS.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Button layoutX="45.0" layoutY="370.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="160.0" styleClass="nav-btn" stylesheets="@LoginCSS.css" text="        Dashbord    " textFill="WHITE" AnchorPane.leftAnchor="45.0">
+                                 <graphic>
+                                    <ImageView fitHeight="20.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@Icon/home.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button layoutX="45.0" layoutY="426.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="160.0" styleClass="nav-btn" stylesheets="@LoginCSS.css" text="        Add Cashier " textFill="WHITE">
+                                 <graphic>
+                                    <ImageView fitHeight="20.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@Icon/cashier1.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button layoutX="44.0" layoutY="486.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="160.0" styleClass="nav-btn" stylesheets="@LoginCSS.css" text="        Add Product" textFill="WHITE">
+                                 <graphic>
+                                    <ImageView fitHeight="20.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@Icon/shopping-cart.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic></Button>
+                              <Button fx:id="back_btn" layoutX="77.0" layoutY="617.0" mnemonicParsing="false" onAction="#goBack" styleClass="close-btn" stylesheets="@LoginCSS.css" text="Sign out" textFill="WHITE" AnchorPane.bottomAnchor="32.0" AnchorPane.leftAnchor="78.0" AnchorPane.rightAnchor="78.0">
+                                 <graphic>
+                                    <ImageView fitHeight="19.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@Icon/logout.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic></Button>
+                              <Line endX="100.0" layoutX="126.0" layoutY="339.0" startX="-100.0" stroke="WHITE" />
+                              <Label alignment="CENTER" layoutX="92.0" layoutY="285.0" text="Isuru" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                                 <font>
+                                    <Font size="32.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="177.0" fitWidth="179.0" layoutX="38.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Icon/businessman.png" />
+                                 </image>
+                              </ImageView>
+                              <Label layoutX="56.0" layoutY="245.0" text="Welcome " textFill="WHITE">
+                                 <font>
+                                    <Font size="32.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </left>
+               <top>
+                  <AnchorPane prefHeight="38.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane layoutX="175.0" layoutY="-81.0" prefHeight="119.0" prefWidth="1024.0" styleClass="backgroundpanal1" stylesheets="@CSS.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Button layoutX="988.0" layoutY="4.0" mnemonicParsing="false" onAction="#close" prefHeight="32.0" prefWidth="65.0" styleClass="close-btn" stylesheets="@LoginCSS.css" text="X" textFill="WHITE" AnchorPane.bottomAnchor="4.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="4.0" />
+                              <Label layoutX="71.0" layoutY="9.0" text="Groceryshop Management System | Manager" textFill="WHITE" />
+                              <ImageView fitHeight="32.0" fitWidth="39.0" layoutX="13.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="982.0" AnchorPane.topAnchor="4.0">
+                                 <image>
+                                    <Image url="@Icon/001-supermaket.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </top>
+               <center>
+                  <AnchorPane prefHeight="680.0" prefWidth="774.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane prefHeight="680.0" prefWidth="772.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="680.0" prefWidth="772.0" />
+                        <AnchorPane prefHeight="680.0" prefWidth="772.0" styleClass="backgroundpanal1" stylesheets="@CSS.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="7.0" layoutY="237.0" prefHeight="453.0" prefWidth="782.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="237.0">
+                                 <children>
+                                    <AreaChart layoutX="11.0" layoutY="9.0" prefHeight="434.0" prefWidth="762.0">
+                                      <xAxis>
+                                        <CategoryAxis side="BOTTOM" />
+                                      </xAxis>
+                                      <yAxis>
+                                        <NumberAxis side="LEFT" />
+                                      </yAxis>
+                                    </AreaChart>
+                                 </children></AnchorPane>
+                              <AnchorPane prefHeight="233.0" prefWidth="782.0" styleClass="backgroundpanal2" stylesheets="@CSS.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <AnchorPane prefHeight="213.0" prefWidth="237.0" styleClass="textfield" stylesheets="@CSS.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                       <children>
+                                          <ImageView fitHeight="121.0" fitWidth="137.0" layoutX="58.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../icon/employee.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label layoutX="108.0" layoutY="100.0" text="0">
+                                             <font>
+                                                <Font size="40.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="46.0" layoutY="155.0" text="Cashiers">
+                                             <font>
+                                                <Font size="40.0" />
+                                             </font>
+                                          </Label>
+                                       </children></AnchorPane>
+                                    <AnchorPane layoutX="523.0" layoutY="10.0" prefHeight="213.0" prefWidth="237.0" styleClass="textfield" stylesheets="@CSS.css" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                       <children>
+                                          <ImageView fitHeight="95.0" fitWidth="99.0" layoutX="71.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@Icon/schedule.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label layoutX="105.0" layoutY="92.0" text="Rs. ">
+                                             <font>
+                                                <Font size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="112.0" layoutY="116.0" text="0">
+                                             <font>
+                                                <Font size="40.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="23.0" layoutY="160.0" text="Monthly income">
+                                             <font>
+                                                <Font size="28.0" />
+                                             </font>
+                                          </Label>
+                                       </children></AnchorPane>
+                                    <AnchorPane layoutX="273.0" layoutY="10.0" prefHeight="213.0" prefWidth="237.0" styleClass="textfield" stylesheets="@CSS.css">
+                                       <children>
+                                          <ImageView fitHeight="95.0" fitWidth="99.0" layoutX="72.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@Icon/profits.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label layoutX="33.0" layoutY="161.0" text="Daily income">
+                                             <font>
+                                                <Font size="30.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="108.0" layoutY="121.0" text="0">
+                                             <font>
+                                                <Font size="40.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="101.0" layoutY="97.0" text="Rs. ">
+                                             <font>
+                                                <Font size="24.0" />
+                                             </font>
+                                          </Label>
+                                       </children></AnchorPane>
+                                 </children>
+                              </AnchorPane>
+                           </children></AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </center>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

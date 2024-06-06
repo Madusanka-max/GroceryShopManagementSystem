@@ -120,7 +120,7 @@ public class Controller implements Initializable {
                     showErrorAlert("Success Message","Successfully Login!");
                     ManagerLogin_Login_btn.getScene().getWindow().hide();
                     // Handle navigation to cashier Dashbord screen
-                    Parent root = FXMLLoader.load(getClass().getResource("ManagerDashbord.fxml"));
+                    Parent root = FXMLLoader.load(getClass().getResource("Manager.fxml"));
                     Stage stage = new Stage();
                     Scene scene = new Scene (root);
                     stage.setScene(scene);
@@ -150,6 +150,7 @@ public class Controller implements Initializable {
                 result = prepare.executeQuery();
                 if (result.next()) {
                     showErrorAlert("Success Message","Successfully Login!");
+                    // HIDE CashierLogin Login WINDOW
                     CashierLogin_Login_btn.getScene().getWindow().hide();
                     // Handle navigation to cashier Dashbord screen
                     Parent root = FXMLLoader.load(getClass().getResource("CashierDasbord.fxml"));

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -13,7 +14,7 @@
          <children>
             <AnchorPane layoutX="13.0" layoutY="18.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <AnchorPane layoutX="33.0" layoutY="33.0" prefHeight="720.0" prefWidth="291.0" style="-fx-background-color: #2D4AE3;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <AnchorPane prefHeight="720.0" prefWidth="296.0" style="-fx-background-color: #2D4AE3;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="728.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <Label alignment="CENTER" layoutX="84.0" layoutY="235.0" text="Manager">
                            <font>
@@ -40,6 +41,11 @@
                               <Font size="24.0" />
                            </font>
                         </Button>
+                        <ImageView fitHeight="203.0" fitWidth="223.0" layoutX="59.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Icon/manager.png" />
+                           </image>
+                        </ImageView>
                      </children>
                   </AnchorPane>
                   <AnchorPane layoutX="791.0" layoutY="33.0" prefHeight="720.0" prefWidth="736.0" style="-fx-background-color: #7A95D8;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">

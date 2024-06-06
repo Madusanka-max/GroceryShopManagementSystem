@@ -13,31 +13,45 @@
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
-            <AnchorPane layoutX="77.0" layoutY="73.0" prefHeight="720.0" prefWidth="1024.0" styleClass="backgroundpanal1" stylesheets="@LoginCSS.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <AnchorPane layoutX="77.0" layoutY="73.0" prefHeight="720.0" prefWidth="1024.0" styleClass="backgroundpanal1" stylesheets="@CSS.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Button fx:id="Home_Cashier_btn" alignment="BOTTOM_CENTER" layoutX="60.0" layoutY="116.0" mnemonicParsing="false" onAction="#goToCashierLogin" prefHeight="500.0" prefWidth="400.0" styleClass="background-btn" stylesheets="@LoginCSS.css" text="Cashier" textAlignment="CENTER" AnchorPane.bottomAnchor="110.0" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="110.0">
+                  <Button fx:id="Home_Cashier_btn" alignment="BOTTOM_CENTER" layoutX="60.0" layoutY="116.0" mnemonicParsing="false" onAction="#goToCashierLogin" prefHeight="500.0" prefWidth="400.0" styleClass="background-btn" stylesheets="@CSS.css" textAlignment="CENTER" AnchorPane.bottomAnchor="110.0" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="110.0">
                      <font>
                         <Font name="Arial Bold" size="48.0" />
                      </font>
+                     <graphic>
+                        <ImageView fitHeight="330.0" fitWidth="306.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Icon/cashier.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </Button>
-                  <ImageView fitHeight="330.0" fitWidth="306.0" layoutX="107.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="107.0" AnchorPane.topAnchor="207.0">
-                     <image>
-                        <Image url="@Icon/cashier.png" />
-                     </image>
-                  </ImageView>
-                  <Button fx:id="Home_Manager_btn" alignment="BOTTOM_CENTER" layoutX="561.0" layoutY="110.0" mnemonicParsing="false" onAction="#goToManagerLogin" prefHeight="500.0" prefWidth="400.0" styleClass="background-btn" stylesheets="@LoginCSS.css" text="Manager" textAlignment="CENTER" AnchorPane.bottomAnchor="110.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="110.0">
+                  <Label layoutX="166.0" layoutY="155.0" text="Cashier">
+                     <font>
+                        <Font name="System Bold" size="58.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="Home_Manager_btn" alignment="BOTTOM_CENTER" layoutX="561.0" layoutY="110.0" mnemonicParsing="false" onAction="#goToManagerLogin" prefHeight="500.0" prefWidth="400.0" styleClass="background-btn" stylesheets="@CSS.css" textAlignment="CENTER" AnchorPane.bottomAnchor="110.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="110.0">
                      <font>
                         <Font name="System Bold" size="48.0" />
                      </font>
+                     <graphic>
+                        <ImageView fitHeight="330.0" fitWidth="306.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Icon/manager.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </Button>
-                  <ImageView fitHeight="330.0" fitWidth="306.0" layoutX="611.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="207.0" AnchorPane.rightAnchor="107.0" AnchorPane.topAnchor="207.0">
-                     <image>
-                        <Image url="@Icon/manager.png" />
-                     </image>
-                  </ImageView>
+                  <Label layoutX="642.0" layoutY="155.0" text="Manager">
+                     <font>
+                        <Font name="System Bold" size="58.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
-            <Button fx:id="close_btn" cancelButton="true" layoutX="539.0" layoutY="27.0" mnemonicParsing="false" onAction="#close" prefHeight="43.0" prefWidth="47.0" styleClass="close-btn" stylesheets="@LoginCSS.css" text="X" textFill="WHITE" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+            <Button fx:id="close_btn" cancelButton="true" layoutX="539.0" layoutY="27.0" mnemonicParsing="false" onAction="#close" prefHeight="43.0" prefWidth="47.0" styleClass="close-btn" stylesheets="@CSS.css" text="X" textFill="WHITE" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                <font>
                   <Font name="Arial Bold Italic" size="24.0" />
                </font>
