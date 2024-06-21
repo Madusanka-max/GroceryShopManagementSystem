@@ -15,6 +15,18 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-background-color:linear-gradient(to top right, #7A95D8, #6185D1);
 }
 
+.backgroundpanal3{
+    -fx-background-color:linear-gradient(to top right, #7d5d19, #efdf98);
+}
+
+.backgroundpanal4{
+    -fx-background-color:linear-gradient(to top right, #832a2a, #d78f8f);
+}
+
+.backgroundpanal5{
+    -fx-background-color:linear-gradient(to top right, #124814, #c7f3cd);
+}
+
 .background-btn{
     -fx-background-color:linear-gradient(to top right, #7A95D8, #6185D1);
 }

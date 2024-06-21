@@ -9,6 +9,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ResourceBundle;
+
+import groceryshopmanagementsystem.GroceryShopManagementSystem.MouseEventHandler;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -17,6 +19,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -64,7 +67,6 @@ public class Controller implements Initializable {
 
     @FXML
     private PasswordField ManagerLogin_password_textField;
-
     
     //Going to ManagerLogin
     @FXML
@@ -192,6 +194,8 @@ public class Controller implements Initializable {
         System.exit(0);
     }
   
+
+
 
     
     

@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXML.java to edit this template
  */
 package groceryshopmanagementsystem;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -19,11 +18,9 @@ import javafx.stage.StageStyle;
 
 public class GroceryShopManagementSystem extends Application {
     
-    
     private double X=0;
     private double Y=0;
 
-    
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("index.fxml"));        
@@ -46,8 +43,6 @@ public class GroceryShopManagementSystem extends Application {
     }
 
 
-
-
     /**
      * @param args the command line arguments
      */
@@ -59,5 +54,8 @@ public class GroceryShopManagementSystem extends Application {
     }
     
 }
+
+
+
 
 
