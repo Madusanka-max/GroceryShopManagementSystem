@@ -9,8 +9,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ResourceBundle;
-
-import groceryshopmanagementsystem.GroceryShopManagementSystem.MouseEventHandler;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -19,6 +17,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -26,6 +25,12 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
 import javafx.scene.Node;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+
+//import groceryshopmanagementsystem.GroceryShopManagementSystem.MouseEventHandler;
+
 
 
 /**
@@ -42,7 +47,7 @@ public class Controller implements Initializable {
     private Button Home_Cashier_btn;
 
 
-    //Cashier
+    //Cashier login
     @FXML
     private PasswordField CashierLogin_password_textField;
 
@@ -52,7 +57,7 @@ public class Controller implements Initializable {
     @FXML
     private TextField CashierLogin_Username_textField;
 
-    //Manager
+    //Manager login
     @FXML
     private Button ManagerLogin_Login_btn;
 
@@ -67,6 +72,180 @@ public class Controller implements Initializable {
 
     @FXML
     private PasswordField ManagerLogin_password_textField;
+
+    //Cashier
+    
+     @FXML
+    private Label Cashier_total_label;
+
+    @FXML
+    private TableColumn<?, ?> Cashier_table_Quantity;
+
+    @FXML
+    private TableColumn<?, ?> Cashier_table_Pname;
+
+    @FXML
+    private Button Cashier_Clear_btn;
+
+    @FXML
+    private Label Cashier_userName;
+
+    @FXML
+    private AnchorPane Cashier_Purchase;
+
+    @FXML
+    private Button Cashier_ADD_btn;
+
+    @FXML
+    private TableColumn<?, ?> Cashier_table_Price;
+
+    @FXML
+    private TableView<?> Cashier_table;
+
+    @FXML
+    private Button Cashier_Delete_btn;
+
+    @FXML
+    private TextField Cashier_Quantity_TextFeild;
+
+    @FXML
+    private TextField Cashier_Pid_TextFeild;
+
+    @FXML
+    private Button Cashier_Purchase_btn;
+
+    @FXML
+    private TableColumn<?, ?> Cashier_table_Bid;
+
+    //Manager
+
+    @FXML
+    private TextField Manager_AddCashier_Lname_TextFeild;
+
+    @FXML
+    private Button Manager_AddProduct_Delete_btn;
+
+    @FXML
+    private TextField Manager_AddProduct_price_TextFeild;
+
+    @FXML
+    private TableColumn<?, ?> Manager_AddCashier_table_password;
+
+    @FXML
+    private TableView<?> Manager_AddProduct_table;
+
+    @FXML
+    private Label Manager_Dashbord_Monthlyincome;
+
+    @FXML
+    private Button Manager_AddProduct_Clear_btn;
+
+    @FXML
+    private Button Manager_Dashbord_btn;
+
+    @FXML
+    private Button Manager_AddCashier_Clear_btn;
+
+    @FXML
+    private TableColumn<?, ?> Manager_AddCashier_table_Fname;
+
+    @FXML
+    private Label Manager_Dashbord_Dailyincome;
+
+    @FXML
+    private TextField Manager_AddProduct_Pid_TextFeild;
+
+    @FXML
+    private TableColumn<?, ?> Manager_AddCashier_table_gender;
+
+    @FXML
+    private TableColumn<?, ?> Manager_AddProduct_table_price;
+
+    @FXML
+    private TableColumn<?, ?> Manager_AddCashier_table_Date;
+
+    @FXML
+    private TableColumn<?, ?> Manager_AddProduct_table_Date;
+
+    @FXML
+    private Button Manager_AddProduct_Update_btn;
+
+    @FXML
+    private AnchorPane Manager_Dashbord;
+
+    @FXML
+    private Button Manager_AddProduct_ADD_btn;
+
+    @FXML
+    private TableColumn<?, ?> Manager_AddCashier_table_Eid;
+
+    @FXML
+    private TextField Manager_AddCashier_Fname_TextFeild;
+
+    @FXML
+    private TextField Manager_AddCashier_password_TextFeild;
+
+    @FXML
+    private TextField Manager_AddCashier_Eid_TextFeild;
+
+    @FXML
+    private Button Manager_AddCashier_Update_btn;
+
+    @FXML
+    private TableColumn<?, ?> Manager_AddProduct_table_Bname;
+
+    @FXML
+    private TextField Manager_AddProduct_status_TextFeild;
+
+    @FXML
+    private TableColumn<?, ?> Manager_AddProduct_table_Pname;
+
+    @FXML
+    private TextField Manager_AddProduct_Pname_TextFeild;
+
+    @FXML
+    private TableColumn<?, ?> Manager_AddProduct_table_status;
+
+    @FXML
+    private TableColumn<?, ?> Manager_AddCashier_table_Lname;
+
+    @FXML
+    private AnchorPane Manager_AddCashier;
+
+    @FXML
+    private TableView<?> Manager_AddCashier_table;
+
+    @FXML
+    private AnchorPane Manager_AddProduct;
+
+    @FXML
+    private TableColumn<?, ?> Manager_AddProduct_table_Pid;
+
+    @FXML
+    private Button Manager_AddCashier_btn;
+
+    @FXML
+    private Button Manager_AddProduct_btn;
+
+    @FXML
+    private Label Manager_userName;
+
+    @FXML
+    private Label Manager_Dashbord_Cashier_Num;
+
+    @FXML
+    private Button Manager_AddCashier_Delete_btn;
+
+    @FXML
+    private Button Manager_AddCashier_ADD_btn;
+
+    @FXML
+    private TextField Manager_AddCashier_gender_TextFeild;
+
+    @FXML
+    private TextField Manager_AddProduct_Bname_TextFeild;
+
+
     
     //Going to ManagerLogin
     @FXML
@@ -99,6 +278,23 @@ public class Controller implements Initializable {
             e.printStackTrace();
         }
     }
+    //Manager switch Form
+    public void switchForm (ActionEvent event) {
+        if (event.getSource() == Manager_Dashbord_btn) {
+                Manager_Dashbord.setVisible(true);
+                Manager_AddCashier.setVisible (false);
+                Manager_AddProduct.setVisible(false);
+            }else if (event.getSource() == Manager_AddCashier_btn) {
+                Manager_Dashbord.setVisible(false);
+                Manager_AddCashier.setVisible (true);
+                Manager_AddProduct.setVisible(false);
+            }
+            else if (event.getSource() == Manager_AddProduct_btn) {
+                Manager_Dashbord.setVisible(false);
+                Manager_AddCashier.setVisible (false);
+                Manager_AddProduct.setVisible(true);
+            }
+        }
     
     //Database 
 
@@ -168,6 +364,8 @@ public class Controller implements Initializable {
             e.printStackTrace();
         }
     }
+
+    
 
     //Alert method
     private void showErrorAlert(String title, String message) {

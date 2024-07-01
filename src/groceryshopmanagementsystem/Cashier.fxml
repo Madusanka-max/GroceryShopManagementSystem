@@ -18,7 +18,7 @@
                <center>
                   <AnchorPane prefHeight="680.0" prefWidth="774.0" styleClass="backgroundpanal1" stylesheets="@CSS.css" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane fx:id="Manager_AddCashier" prefHeight="680.0" prefWidth="772.0" stylesheets="@CSS.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="Cashier_Purchase" prefHeight="680.0" prefWidth="772.0" stylesheets="@CSS.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <Pane layoutX="18.0" layoutY="358.0" prefHeight="236.0" prefWidth="768.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0">
                                  <children>
@@ -66,7 +66,7 @@
                                     </Label>
                                  </children>
                               </Pane>
-                              <TableView fx:id="Manager_AddCashier_table" layoutX="30.0" layoutY="14.0" prefHeight="425.0" prefWidth="762.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                              <TableView fx:id="Cashier_table" layoutX="30.0" layoutY="14.0" prefHeight="425.0" prefWidth="762.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
                                  <columns>
                                     <TableColumn fx:id="Cashier_table_Bid" prefWidth="281.0" text="Brand Name" />
                                     <TableColumn fx:id="Cashier_table_Pname" prefWidth="284.0" text="Product Name" />
@@ -105,7 +105,7 @@
                               <Line endX="100.0" layoutX="126.0" layoutY="339.0" startX="-100.0" stroke="WHITE" />
                               <Label fx:id="Cashier_userName" alignment="CENTER" layoutX="92.0" layoutY="285.0" text="Isuru" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
                                  <font>
-                                    <Font size="32.0" />
+                                    <Font name="System Bold" size="32.0" />
                                  </font>
                               </Label>
                               <Label layoutX="56.0" layoutY="245.0" text="Welcome " textFill="WHITE">
