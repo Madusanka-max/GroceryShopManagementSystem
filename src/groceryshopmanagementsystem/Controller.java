@@ -40,6 +40,7 @@ import javafx.scene.control.TableView;
 public class Controller implements Initializable {
     
     //index
+    
     @FXML
     private Button Home_Manager_btn;
 
@@ -48,6 +49,7 @@ public class Controller implements Initializable {
 
 
     //Cashier login
+
     @FXML
     private PasswordField CashierLogin_password_textField;
 
@@ -58,6 +60,7 @@ public class Controller implements Initializable {
     private TextField CashierLogin_Username_textField;
 
     //Manager login
+
     @FXML
     private Button ManagerLogin_Login_btn;
 
@@ -120,16 +123,19 @@ public class Controller implements Initializable {
     //Manager
 
     @FXML
+    private TableColumn<?, ?> Manager_AddProduct_table_Date;
+
+    @FXML
     private TextField Manager_AddCashier_Lname_TextFeild;
 
     @FXML
     private Button Manager_AddProduct_Delete_btn;
 
     @FXML
-    private TextField Manager_AddProduct_price_TextFeild;
+    private TextField Manager_search_TextFeild1;
 
     @FXML
-    private TableColumn<?, ?> Manager_AddCashier_table_password;
+    private TextField Manager_AddProduct_price_TextFeild;
 
     @FXML
     private TableView<?> Manager_AddProduct_table;
@@ -159,13 +165,7 @@ public class Controller implements Initializable {
     private TableColumn<?, ?> Manager_AddCashier_table_gender;
 
     @FXML
-    private TableColumn<?, ?> Manager_AddProduct_table_price;
-
-    @FXML
     private TableColumn<?, ?> Manager_AddCashier_table_Date;
-
-    @FXML
-    private TableColumn<?, ?> Manager_AddProduct_table_Date;
 
     @FXML
     private Button Manager_AddProduct_Update_btn;
@@ -199,6 +199,9 @@ public class Controller implements Initializable {
 
     @FXML
     private TableColumn<?, ?> Manager_AddProduct_table_Pname;
+
+    @FXML
+    private TableColumn<?, ?> Manager_AddProduct_table_price1;
 
     @FXML
     private TextField Manager_AddProduct_Pname_TextFeild;

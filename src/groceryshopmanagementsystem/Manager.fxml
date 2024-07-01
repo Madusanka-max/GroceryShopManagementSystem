@@ -262,14 +262,14 @@
                                           <Font size="24.0" />
                                        </font>
                                     </Button>
-                                    <TextField fx:id="Manager_AddProduct_price_TextFeild" layoutX="551.0" layoutY="24.0" />
-                                    <TextField fx:id="Manager_AddProduct_Bname_TextFeild" layoutX="551.0" layoutY="96.0" />
-                                    <Label alignment="CENTER" layoutX="482.0" layoutY="22.0" text="Price :" textFill="WHITE">
+                                    <TextField fx:id="Manager_AddProduct_price_TextFeild" layoutX="560.0" layoutY="96.0" />
+                                    <TextField fx:id="Manager_AddProduct_Bname_TextFeild" layoutX="561.0" layoutY="164.0" />
+                                    <Label alignment="CENTER" layoutX="491.0" layoutY="94.0" text="Price :" textFill="WHITE">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
                                     </Label>
-                                    <Label alignment="CENTER" layoutX="402.0" layoutY="94.0" text="Brand Name :" textFill="WHITE">
+                                    <Label alignment="CENTER" layoutX="412.0" layoutY="162.0" text="Brand Name :" textFill="WHITE">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
@@ -307,6 +307,12 @@
                                           <Font size="24.0" />
                                        </font>
                                     </Button>
+                                    <TextField fx:id="Manager_search_TextFeild1" layoutX="525.0" layoutY="-1.0" promptText="Search" />
+                                    <ImageView fitHeight="29.0" fitWidth="38.0" layoutX="718.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@Icon/packaging.png" />
+                                       </image>
+                                    </ImageView>
                                  </children>
                               </Pane>
                            </children>

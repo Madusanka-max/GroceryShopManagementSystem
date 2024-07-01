@@ -46,8 +46,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 }
 
 .textfield:focused{
--fx-background-color: #7c91D8;
--fx-border-width:0px 0px 1.8px 0px;
+    -fx-background-color: #7c91D8;
+    -fx-border-width:0px 0px 1.8px 0px;
 }
 
 .login-btn{
