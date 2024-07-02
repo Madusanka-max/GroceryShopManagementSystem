@@ -29,7 +29,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
-//import groceryshopmanagementsystem.GroceryShopManagementSystem.MouseEventHandler;
+//import groceryshopmanagementsystem.MouseEventHandler;
 
 
 
@@ -39,8 +39,8 @@ import javafx.scene.control.TableView;
  */
 public class Controller implements Initializable {
     
-    //index
-    
+    //index ----------------------------------------------------------------------------------------
+
     @FXML
     private Button Home_Manager_btn;
 
@@ -48,7 +48,7 @@ public class Controller implements Initializable {
     private Button Home_Cashier_btn;
 
 
-    //Cashier login
+    //Cashier login --------------------------------------------------------------------------------
 
     @FXML
     private PasswordField CashierLogin_password_textField;
@@ -59,7 +59,7 @@ public class Controller implements Initializable {
     @FXML
     private TextField CashierLogin_Username_textField;
 
-    //Manager login
+    //Manager login -------------------------------------------------------------------------------
 
     @FXML
     private Button ManagerLogin_Login_btn;
@@ -76,7 +76,7 @@ public class Controller implements Initializable {
     @FXML
     private PasswordField ManagerLogin_password_textField;
 
-    //Cashier
+    //Cashier --------------------------------------------------------------------------------------
     
      @FXML
     private Label Cashier_total_label;
@@ -120,7 +120,7 @@ public class Controller implements Initializable {
     @FXML
     private TableColumn<?, ?> Cashier_table_Bid;
 
-    //Manager
+    //Manager -----------------------------------------------------------------------------------
 
     @FXML
     private TableColumn<?, ?> Manager_AddProduct_table_Date;
@@ -130,9 +130,6 @@ public class Controller implements Initializable {
 
     @FXML
     private Button Manager_AddProduct_Delete_btn;
-
-    @FXML
-    private TextField Manager_search_TextFeild1;
 
     @FXML
     private TextField Manager_AddProduct_price_TextFeild;
@@ -150,6 +147,9 @@ public class Controller implements Initializable {
     private Button Manager_Dashbord_btn;
 
     @FXML
+    private TextField Manager_Product_search_TextFeild1;
+
+    @FXML
     private Button Manager_AddCashier_Clear_btn;
 
     @FXML
@@ -160,6 +160,9 @@ public class Controller implements Initializable {
 
     @FXML
     private TextField Manager_AddProduct_Pid_TextFeild;
+
+    @FXML
+    private TextField Manager_Employee_search_TextFeild2;
 
     @FXML
     private TableColumn<?, ?> Manager_AddCashier_table_gender;
@@ -250,7 +253,7 @@ public class Controller implements Initializable {
 
 
     
-    //Going to ManagerLogin
+//Going to ManagerLogin
     @FXML
     private void goToManagerLogin(ActionEvent event) {
         // Handle navigation to manager login screen
@@ -266,7 +269,7 @@ public class Controller implements Initializable {
         }
     }
 
-    //Going to CashierLogin
+//Going to CashierLogin
     @FXML
     private void goToCashierLogin(ActionEvent event) {
         // Handle navigation to cashier login screen
@@ -281,30 +284,36 @@ public class Controller implements Initializable {
             e.printStackTrace();
         }
     }
-    //Manager switch Form
+
+//Manager switch Form
     public void switchForm (ActionEvent event) {
         if (event.getSource() == Manager_Dashbord_btn) {
-                Manager_Dashbord.setVisible(true);
-                Manager_AddCashier.setVisible (false);
-                Manager_AddProduct.setVisible(false);
-            }else if (event.getSource() == Manager_AddCashier_btn) {
-                Manager_Dashbord.setVisible(false);
-                Manager_AddCashier.setVisible (true);
-                Manager_AddProduct.setVisible(false);
-            }
-            else if (event.getSource() == Manager_AddProduct_btn) {
-                Manager_Dashbord.setVisible(false);
-                Manager_AddCashier.setVisible (false);
-                Manager_AddProduct.setVisible(true);
-            }
+            Manager_Dashbord.setVisible(true);
+            Manager_AddCashier.setVisible (false);
+            Manager_AddProduct.setVisible(false);
+        }else if (event.getSource() == Manager_AddCashier_btn) {
+            Manager_Dashbord.setVisible(false);
+            Manager_AddCashier.setVisible (true);
+            Manager_AddProduct.setVisible(false);
         }
+        else if (event.getSource() == Manager_AddProduct_btn) {
+            Manager_Dashbord.setVisible(false);
+            Manager_AddCashier.setVisible (false);
+            Manager_AddProduct.setVisible(true);
+        }
+    }
     
-    //Database 
+//Manager 
+
+
+    
+//Database 
 
     private Connection connect;
     private ResultSet result;
     private PreparedStatement prepare;
-    //Manager Login Database
+
+//Manager Login Database
     public void managerlogin(){
         String managerData = "SELECT * FROM manager WHERE username=? and Password=?";
         connect = database.connectdb();
@@ -335,7 +344,7 @@ public class Controller implements Initializable {
         }
     }
 
-    //Cashier Login Database 
+//Cashier Login Database 
     public void Cashierlogin(){
         String cashierData = "SELECT * FROM cashier WHERE username=? and Password=?";
         connect = database.connectdb();
@@ -370,7 +379,7 @@ public class Controller implements Initializable {
 
     
 
-    //Alert method
+//Alert method
     private void showErrorAlert(String title, String message) {
         Alert alert = new Alert(AlertType.ERROR);
         alert.setTitle(title);
@@ -379,7 +388,7 @@ public class Controller implements Initializable {
         alert.showAndWait();
     }
     
-    //GoingBack Button method 
+//GoingBack Button method 
     @FXML
     private void goBack(ActionEvent event) throws IOException {
         Parent previousRoot = FXMLLoader.load(getClass().getResource("index.fxml"));
@@ -389,7 +398,7 @@ public class Controller implements Initializable {
         stage.show();
     }
 
-    //Close Button method
+//Close Button method
     @FXML
     public void close(){
         System.exit(0);

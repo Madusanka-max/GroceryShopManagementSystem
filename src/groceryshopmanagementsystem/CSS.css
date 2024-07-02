@@ -94,3 +94,26 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-background-color:linear-gradient(to top right, #3d85cc, #295986);
     
 }
+
+.Manager_search_TextFeild{
+    -fx-padding:0px 0px 0px 35px;
+}
+
+.table-view{
+    -fx-border-color:linear-gradient (to top right,#3d85cc, #295986);
+    -fx-border-width:2px;
+    -fx-border-radius:5px;
+}
+    
+.table-view .table-column{
+    -fx-alignment:CENTER;
+}
+
+.table-view .column-header-background{
+    -fx-background-color:linear-gradient (to top right, #3d85cc, #295986);
+    -fx-background-insets: 0 0 0 0;
+}
+
+.table-view .column-header, .filter{
+    -fx-size:50px;
+}
