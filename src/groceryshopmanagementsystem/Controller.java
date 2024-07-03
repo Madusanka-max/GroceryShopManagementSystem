@@ -23,6 +23,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import javafx.scene.input.MouseEvent;
 import java.io.IOException;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
@@ -312,7 +314,9 @@ public class Controller implements Initializable {
     private Connection connect;
     private ResultSet result;
     private PreparedStatement prepare;
-
+    private double X=0;
+    private double Y=0;
+    
 //Manager Login Database
     public void managerlogin(){
         String managerData = "SELECT * FROM manager WHERE username=? and Password=?";
@@ -333,6 +337,22 @@ public class Controller implements Initializable {
                     Parent root = FXMLLoader.load(getClass().getResource("Manager.fxml"));
                     Stage stage = new Stage();
                     Scene scene = new Scene (root);
+
+                    //drage
+                    root.setOnMousePressed((MouseEvent event) ->{
+                        X= event.getSceneX();
+                        Y= event.getSceneY();
+                    });
+                    root.setOnMouseDragged ((MouseEvent event) ->{
+                        stage.setX (event.getScreenX() - X);
+                        stage.setY(event.getScreenY () - Y);
+                        stage.setOpacity(.8);
+                    });
+                    root. setOnMouseReleased ( (MouseEvent event) ->{
+                        stage.setOpacity(1);
+                    });
+                    stage.initStyle(StageStyle. TRANSPARENT) ;
+
                     stage.setScene(scene);
                     stage.show();
                 }else{
@@ -343,6 +363,7 @@ public class Controller implements Initializable {
             e.printStackTrace();
         }
     }
+
 
 //Cashier Login Database 
     public void Cashierlogin(){
@@ -366,6 +387,22 @@ public class Controller implements Initializable {
                     Parent root = FXMLLoader.load(getClass().getResource("CashierDasbord.fxml"));
                     Stage stage = new Stage();
                     Scene scene = new Scene (root);
+
+                    //drage
+                    root.setOnMousePressed((MouseEvent event) ->{
+                        X= event.getSceneX();
+                        Y= event.getSceneY();
+                    });
+                    root.setOnMouseDragged ((MouseEvent event) ->{
+                        stage.setX (event.getScreenX() - X);
+                        stage.setY(event.getScreenY () - Y);
+                        stage.setOpacity(.8);
+                    });
+                    root. setOnMouseReleased ( (MouseEvent event) ->{
+                        stage.setOpacity(1);
+                    });
+                    stage.initStyle(StageStyle. TRANSPARENT) ;
+
                     stage.setScene(scene);
                     stage.show();
                 }else{
