@@ -57,7 +57,7 @@
                               <Line endX="100.0" layoutX="126.0" layoutY="339.0" startX="-100.0" stroke="WHITE" />
                               <Label fx:id="Manager_userName" alignment="CENTER" layoutX="92.0" layoutY="285.0" text="Isuru" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
                                  <font>
-                                    <Font size="32.0" />
+                                    <Font name="System Bold" size="32.0" />
                                  </font>
                               </Label>
                               <ImageView fitHeight="177.0" fitWidth="179.0" layoutX="38.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
