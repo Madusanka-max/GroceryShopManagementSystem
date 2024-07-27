@@ -118,6 +118,7 @@
                                     <Image url="@Icon/cashier1.png" />
                                  </image>
                               </ImageView>
+                              <Button layoutX="109.0" layoutY="504.0" mnemonicParsing="false" text="Button" />
                            </children>
                         </AnchorPane>
                      </children>

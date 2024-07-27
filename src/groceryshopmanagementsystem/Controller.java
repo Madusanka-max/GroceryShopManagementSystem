@@ -396,7 +396,7 @@ public class Controller implements Initializable {
                     // HIDE CashierLogin Login WINDOW
                     CashierLogin_Login_btn.getScene().getWindow().hide();
                     // Handle navigation to cashier Dashbord screen
-                    Parent root = FXMLLoader.load(getClass().getResource("CashierDasbord.fxml"));
+                    Parent root = FXMLLoader.load(getClass().getResource("Cashier.fxml"));
                     Stage stage = new Stage();
                     Scene scene = new Scene (root);
 
