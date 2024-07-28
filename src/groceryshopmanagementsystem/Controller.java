@@ -293,41 +293,56 @@ public class Controller implements Initializable {
             Manager_Dashbord.setVisible(true);
             Manager_AddCashier.setVisible (false);
             Manager_AddProduct.setVisible(false);
-
-            Manager_Dashbord_btn.setStyle("-fx-background-color:linear-gradient (to top right, #ff0000, #e7b0b0)");
-            Manager_AddCashier_btn.setStyle("-fx-background-color:transparent");
-            Manager_AddProduct_btn.setStyle("-fx-background-color:transparent");
-        }else if (event.getSource() == Manager_AddCashier_btn) {
+        }
+        else if (event.getSource() == Manager_AddCashier_btn) {
             Manager_Dashbord.setVisible(false);
             Manager_AddCashier.setVisible (true);
             Manager_AddProduct.setVisible(false);
-
-            Manager_Dashbord_btn.setStyle("-fx-background-color:transparent");
-            Manager_AddCashier_btn.setStyle("-fx-background-color:linear-gradient (to top right, #ff0000, #e7b0b0)");
-            Manager_AddProduct_btn.setStyle("-fx-background-color:transparent");
         }
         else if (event.getSource() == Manager_AddProduct_btn) {
             Manager_Dashbord.setVisible(false);
             Manager_AddCashier.setVisible (false);
             Manager_AddProduct.setVisible(true);
-
-            Manager_Dashbord_btn.setStyle("-fx-background-color:transparent");
-            Manager_AddCashier_btn.setStyle("-fx-background-color:transparent");
-            Manager_AddProduct.setStyle("-fx-background-color:linear-gradient (to top right, #ff0000, #e7b0b0)");
         }
     }
     
-//Manager 
+ //Alert method
+ private void showErrorAlert(String title, String message) {
+    Alert alert = new Alert(AlertType.ERROR);
+    alert.setTitle(title);
+    alert.setHeaderText(null);
+    alert.setContentText(message);
+    alert.showAndWait();
+}
+
+//GoingBack Button method 
+@FXML
+private void goBack(ActionEvent event) throws IOException {
+    Parent previousRoot = FXMLLoader.load(getClass().getResource("index.fxml"));
+    Scene scene = new Scene(previousRoot);
+    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    stage.setScene(scene);
+    stage.show();
+}
+
+//Close Button method
+@FXML
+public void close(){
+    System.exit(0);
+}
+
+
+
 
 
     
 //Database 
-
     private Connection connect;
     private ResultSet result;
     private PreparedStatement prepare;
     private double X=0;
     private double Y=0;
+
 
 //Manager Login Database
     public void managerlogin(){
@@ -426,33 +441,8 @@ public class Controller implements Initializable {
         }
     }
 
+//Manager Add Product
     
-
-//Alert method
-    private void showErrorAlert(String title, String message) {
-        Alert alert = new Alert(AlertType.ERROR);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.showAndWait();
-    }
-    
-//GoingBack Button method 
-    @FXML
-    private void goBack(ActionEvent event) throws IOException {
-        Parent previousRoot = FXMLLoader.load(getClass().getResource("index.fxml"));
-        Scene scene = new Scene(previousRoot);
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
-    }
-
-//Close Button method
-    @FXML
-    public void close(){
-        System.exit(0);
-    }
-  
 
 
 
