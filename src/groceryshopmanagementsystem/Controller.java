@@ -8,6 +8,7 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -340,6 +341,8 @@ public void close(){
     private Connection connect;
     private ResultSet result;
     private PreparedStatement prepare;
+    private Statement statement;
+
     private double X=0;
     private double Y=0;
 
@@ -442,10 +445,35 @@ public void close(){
     }
 
 //Manager Add Product
-    
 
+    private String ProductId;
+    private String ProductName;
+    private String BrandName;
+    private Double Price;
+    private String Status;
 
-
+    public void ProductData(String ProductId,String ProductName,String BrandName,Double Price,String Status){
+        this.ProductId = ProductId;
+        this.ProductName = ProductName;
+        this.BrandName = BrandName;
+        this.Price = Price;
+        this.Status = Status;
+    }
+    public String getProductId(){
+        return ProductId;
+    }
+    public String getProductName(){
+        return ProductName;
+    }
+    public String getBrandName(){
+        return BrandName;
+    }
+    public double getPrice(){
+        return Price;
+    }
+    public String getStatus(){
+        return Status;
+    }
     
     
     
