@@ -10,16 +10,21 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ResourceBundle;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.web.PromptData;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -32,6 +37,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
+
+import groceryshopmanagementsystem.ProductData;
 //import groceryshopmanagementsystem.MouseEventHandler;
 
 
@@ -126,9 +133,6 @@ public class Controller implements Initializable {
     //Manager -----------------------------------------------------------------------------------
 
     @FXML
-    private TableColumn<?, ?> Manager_AddProduct_table_Date;
-
-    @FXML
     private TextField Manager_AddCashier_Lname_TextFeild;
 
     @FXML
@@ -138,7 +142,7 @@ public class Controller implements Initializable {
     private TextField Manager_AddProduct_price_TextFeild;
 
     @FXML
-    private TableView<?> Manager_AddProduct_table;
+    private TableView<ProductData> Manager_AddProduct_table;
 
     @FXML
     private Label Manager_Dashbord_Monthlyincome;
@@ -156,7 +160,7 @@ public class Controller implements Initializable {
     private Button Manager_AddCashier_Clear_btn;
 
     @FXML
-    private TableColumn<?, ?> Manager_AddCashier_table_Fname;
+    private TableColumn<ProductData, ?> Manager_AddCashier_table_Fname;
 
     @FXML
     private Label Manager_Dashbord_Dailyincome;
@@ -198,22 +202,22 @@ public class Controller implements Initializable {
     private Button Manager_AddCashier_Update_btn;
 
     @FXML
-    private TableColumn<?, ?> Manager_AddProduct_table_Bname;
+    private TableColumn<ProductData, String> Manager_AddProduct_table_Bname;
 
     @FXML
     private TextField Manager_AddProduct_status_TextFeild;
 
     @FXML
-    private TableColumn<?, ?> Manager_AddProduct_table_Pname;
+    private TableColumn<ProductData, String> Manager_AddProduct_table_Pname;
 
     @FXML
-    private TableColumn<?, ?> Manager_AddProduct_table_price1;
+    private TableColumn<ProductData, Double> Manager_AddProduct_table_price1;
 
     @FXML
     private TextField Manager_AddProduct_Pname_TextFeild;
 
     @FXML
-    private TableColumn<?, ?> Manager_AddProduct_table_status;
+    private TableColumn<ProductData, String> Manager_AddProduct_table_status;
 
     @FXML
     private TableColumn<?, ?> Manager_AddCashier_table_Lname;
@@ -228,7 +232,7 @@ public class Controller implements Initializable {
     private AnchorPane Manager_AddProduct;
 
     @FXML
-    private TableColumn<?, ?> Manager_AddProduct_table_Pid;
+    private TableColumn<ProductData, String> Manager_AddProduct_table_Pid;
 
     @FXML
     private Button Manager_AddCashier_btn;
@@ -304,6 +308,8 @@ public class Controller implements Initializable {
             Manager_Dashbord.setVisible(false);
             Manager_AddCashier.setVisible (false);
             Manager_AddProduct.setVisible(true);
+
+            addProductsShowData();
         }
     }
     
@@ -446,36 +452,61 @@ public void close(){
 
 //Manager Add Product
 
-    private String ProductId;
-    private String ProductName;
-    private String BrandName;
-    private Double Price;
-    private String Status;
 
-    public void ProductData(String ProductId,String ProductName,String BrandName,Double Price,String Status){
-        this.ProductId = ProductId;
-        this.ProductName = ProductName;
-        this.BrandName = BrandName;
-        this.Price = Price;
-        this.Status = Status;
+    public void addProductsAdd(){
+
     }
-    public String getProductId(){
-        return ProductId;
+
+    public ObservableList<ProductData> addPorductListData(){
+        ObservableList<ProductData> prodList = FXCollections.observableArrayList();
+        String sql = "select * From product";
+        connect = database.connectdb();
+        try {
+            ProductData prod;
+            prepare = connect.prepareStatement(sql);
+            result = prepare.executeQuery();
+            while (result.next()) {
+                prod = new ProductData(result.getString("ProductId")
+                ,result.getString("ProductName")
+                ,result.getString("BrandName")
+                ,result.getDouble("Price")
+                ,result.getInt("Status"));
+                prodList.add(prod);
+            }
+        } catch (Exception e) {e.printStackTrace();}
+        return prodList;
     }
-    public String getProductName(){
-        return ProductName;
-    }
-    public String getBrandName(){
-        return BrandName;
-    }
-    public double getPrice(){
-        return Price;
-    }
-    public String getStatus(){
-        return Status;
-    }
+
     
-    
+    private ObservableList<ProductData> addProductsList;
+
+    public void addProductsShowData(){
+        addProductsList = addPorductListData();
+
+        Manager_AddProduct_table_Pid.setCellValueFactory(new PropertyValueFactory<>("ProductId"));
+        Manager_AddProduct_table_Bname.setCellValueFactory(new PropertyValueFactory<>("BrandName"));
+        Manager_AddProduct_table_Pname.setCellValueFactory(new PropertyValueFactory<>("ProductName"));
+        Manager_AddProduct_table_status.setCellValueFactory(new PropertyValueFactory<>("Status"));
+        Manager_AddProduct_table_price1.setCellValueFactory(new PropertyValueFactory<>("Price"));
+        
+        Manager_AddProduct_table.setItems(addProductsList);
+    }
+
+    public void addProductsSelect () {
+        ProductData prod = Manager_AddProduct_table.getSelectionModel ().getSelectedItem();
+        int num = Manager_AddProduct_table.getSelectionModel ().getSelectedIndex();
+
+        if((num-1) <- 1) {
+            return;
+        }
+        
+        Manager_AddProduct_Pid_TextFeild.setText (prod.getProductId());
+        Manager_AddProduct_Bname_TextFeild.setText(prod.getBrandName());
+        Manager_AddProduct_Pname_TextFeild.setText(prod.getProductName()) ;
+        Manager_AddProduct_price_TextFeild.setText(String.valueOf(prod.getPrice()));
+        Manager_AddProduct_status_TextFeild.setText(String.valueOf(prod.getStatus()));
+        }
+        
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
