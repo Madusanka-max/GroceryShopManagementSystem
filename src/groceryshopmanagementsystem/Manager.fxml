@@ -55,9 +55,9 @@
                                     </ImageView>
                                  </graphic></Button>
                               <Line endX="100.0" layoutX="126.0" layoutY="339.0" startX="-100.0" stroke="WHITE" />
-                              <Label fx:id="Manager_userName" alignment="CENTER" layoutX="92.0" layoutY="285.0" text="Isuru" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                              <Label fx:id="Manager_userName" alignment="CENTER" layoutX="10.0" layoutY="292.0" text="Admin" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
                                  <font>
-                                    <Font name="System Bold" size="32.0" />
+                                    <Font name="System Bold" size="24.0" />
                                  </font>
                               </Label>
                               <ImageView fitHeight="177.0" fitWidth="179.0" layoutX="38.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
@@ -177,31 +177,31 @@
                                  </children>
                               </AnchorPane>
                            </children></AnchorPane>
-                        <AnchorPane fx:id="Manager_AddCashier" prefHeight="680.0" prefWidth="772.0" stylesheets="@CSS.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="Manager_AddCashier" prefHeight="680.0" prefWidth="772.0" stylesheets="@CSS.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <Pane layoutX="18.0" layoutY="358.0" prefHeight="332.0" prefWidth="769.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0">
                                  <children>
-                                    <Button fx:id="Manager_AddCashier_Delete_btn" layoutX="426.0" layoutY="243.0" mnemonicParsing="false" styleClass="background-btn" stylesheets="@CSS.css" text="Delete" textFill="WHITE">
+                                    <Button fx:id="Manager_AddCashier_Delete_btn" layoutX="426.0" layoutY="243.0" mnemonicParsing="false" onAction="#CashiersDelete" styleClass="background-btn" stylesheets="@CSS.css" text="Delete" textFill="WHITE">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="Manager_AddCashier_Clear_btn" layoutX="593.0" layoutY="243.0" mnemonicParsing="false" styleClass="background-btn" stylesheets="@CSS.css" text="Clear" textFill="WHITE">
+                                    <Button fx:id="Manager_AddCashier_Clear_btn" layoutX="593.0" layoutY="243.0" mnemonicParsing="false" onAction="#CashiersClear" styleClass="background-btn" stylesheets="@CSS.css" text="Clear" textFill="WHITE">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="Manager_AddCashier_Update_btn" layoutX="243.0" layoutY="243.0" mnemonicParsing="false" styleClass="background-btn" stylesheets="@CSS.css" text="Update" textFill="WHITE">
+                                    <Button fx:id="Manager_AddCashier_Update_btn" layoutX="243.0" layoutY="243.0" mnemonicParsing="false" onAction="#CashiersUpdate" styleClass="background-btn" stylesheets="@CSS.css" text="Update" textFill="WHITE">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="Manager_AddCashier_ADD_btn" layoutX="90.0" layoutY="243.0" mnemonicParsing="false" styleClass="background-btn" stylesheets="@CSS.css" text="ADD" textFill="WHITE">
+                                    <Button fx:id="Manager_AddCashier_ADD_btn" layoutX="90.0" layoutY="243.0" mnemonicParsing="false" onAction="#CashiersAdd" styleClass="background-btn" stylesheets="@CSS.css" text="ADD" textFill="WHITE">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
                                     </Button>
-                                    <Label alignment="CENTER" layoutX="21.0" layoutY="33.0" prefHeight="35.0" prefWidth="152.0" text="Employee Id :" textFill="WHITE">
+                                    <Label alignment="CENTER" layoutX="28.0" layoutY="33.0" prefHeight="35.0" prefWidth="152.0" text="User Name :" textFill="WHITE">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
@@ -231,7 +231,7 @@
                                     </Label>
                                     <TextField fx:id="Manager_AddCashier_Lname_TextFeild" layoutX="542.0" layoutY="179.0" />
                                     <TextField fx:id="Manager_AddCashier_password_TextFeild" layoutX="542.0" layoutY="107.0" />
-                                    <TextField fx:id="Manager_Employee_search_TextFeild2" layoutX="494.0" layoutY="3.0" prefHeight="36.0" prefWidth="234.0" promptText="Search" styleClass="Manager_search_TextFeild" stylesheets="@CSS.css" />
+                                    <TextField fx:id="Manager_Employee_search_TextFeild2" layoutX="494.0" layoutY="3.0" onKeyTyped="#CashiersSearch" prefHeight="36.0" prefWidth="234.0" promptText="Search" styleClass="Manager_search_TextFeild" stylesheets="@CSS.css" />
                                     <ImageView fitHeight="30.0" fitWidth="28.0" layoutX="499.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@Icon/people.png" />
@@ -241,28 +241,28 @@
                               </Pane>
                               <TableView fx:id="Manager_AddCashier_table" layoutX="30.0" layoutY="14.0" prefHeight="327.0" prefWidth="719.0" stylesheets="@CSS.css" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
                                  <columns>
-                                    <TableColumn fx:id="Manager_AddCashier_table_Eid" prefWidth="98.0" text="Employee Id" />
-                                    <TableColumn fx:id="Manager_AddCashier_table_Fname" prefWidth="248.0" text="First Name" />
-                                    <TableColumn fx:id="Manager_AddCashier_table_Lname" prefWidth="232.0" text="Last Name" />
-                                    <TableColumn fx:id="Manager_AddCashier_table_gender" prefWidth="73.0" text="Gender" />
-                                    <TableColumn fx:id="Manager_AddCashier_table_Date" prefWidth="111.0" text="Date" />
+                                    <TableColumn fx:id="Manager_AddCashier_table_Eid" prefWidth="145.0" text="User Name" />
+                                    <TableColumn fx:id="Manager_AddCashier_table_Fname" prefWidth="202.0" text="First Name" />
+                                    <TableColumn fx:id="Manager_AddCashier_table_Lname" prefWidth="152.0" text="Last Name" />
+                                    <TableColumn fx:id="Manager_AddCashier_table_gender" prefWidth="99.0" text="Gender" />
+                                    <TableColumn fx:id="Manager_AddCashier_table_Password" prefWidth="160.0" text="Password" />
                                  </columns>
                               </TableView>
                            </children></AnchorPane>
-                        <AnchorPane fx:id="Manager_AddProduct" prefHeight="680.0" prefWidth="772.0" styleClass="backgroundpanal1" stylesheets="@CSS.css">
+                        <AnchorPane fx:id="Manager_AddProduct" prefHeight="680.0" prefWidth="772.0" styleClass="backgroundpanal1" stylesheets="@CSS.css" visible="false">
                            <children>
                               <TableView fx:id="Manager_AddProduct_table" layoutX="27.0" layoutY="14.0" onMouseClicked="#addProductsSelect" prefHeight="332.0" prefWidth="762.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
                                  <columns>
                                     <TableColumn fx:id="Manager_AddProduct_table_Pid" prefWidth="84.0" text="Product Id" />
-                                    <TableColumn fx:id="Manager_AddProduct_table_Bname" prefWidth="202.0" text="Brand Name" />
                                     <TableColumn fx:id="Manager_AddProduct_table_Pname" prefWidth="285.0" text="Product Name" />
+                                    <TableColumn fx:id="Manager_AddProduct_table_Bname" prefWidth="202.0" text="Brand Name" />
                                     <TableColumn fx:id="Manager_AddProduct_table_status" prefWidth="74.0" text="Status " />
-                                    <TableColumn fx:id="Manager_AddProduct_table_price1" minWidth="0.0" prefWidth="116.0" text="Price" />
+                                    <TableColumn fx:id="Manager_AddProduct_table_price1" minWidth="0.0" prefWidth="113.0" text="Price (Rs.)" />
                                  </columns>
                               </TableView>
                               <Pane layoutX="20.0" layoutY="459.0" prefHeight="329.0" prefWidth="768.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0">
                                  <children>
-                                    <Button fx:id="Manager_AddProduct_Delete_btn" layoutX="431.0" layoutY="257.0" mnemonicParsing="false" styleClass="background-btn" stylesheets="@CSS.css" text="Delete" textFill="WHITE">
+                                    <Button fx:id="Manager_AddProduct_Delete_btn" layoutX="431.0" layoutY="257.0" mnemonicParsing="false" onAction="#addProductsDelete" styleClass="background-btn" stylesheets="@CSS.css" text="Delete" textFill="WHITE">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
@@ -297,22 +297,22 @@
                                     </Label>
                                     <TextField fx:id="Manager_AddProduct_Pname_TextFeild" layoutX="204.0" layoutY="96.0" />
                                     <TextField fx:id="Manager_AddProduct_Pid_TextFeild" layoutX="204.0" layoutY="24.0" />
-                                    <Button fx:id="Manager_AddProduct_Clear_btn" layoutX="598.0" layoutY="257.0" mnemonicParsing="false" styleClass="background-btn" stylesheets="@CSS.css" text="Clear" textFill="WHITE">
+                                    <Button fx:id="Manager_AddProduct_Clear_btn" layoutX="598.0" layoutY="257.0" mnemonicParsing="false" onAction="#addProductsClear" styleClass="background-btn" stylesheets="@CSS.css" text="Clear" textFill="WHITE">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="Manager_AddProduct_Update_btn" layoutX="248.0" layoutY="257.0" mnemonicParsing="false" styleClass="background-btn" stylesheets="@CSS.css" text="Update" textFill="WHITE">
+                                    <Button fx:id="Manager_AddProduct_Update_btn" layoutX="248.0" layoutY="257.0" mnemonicParsing="false" onAction="#addPorductsUpdate" styleClass="background-btn" stylesheets="@CSS.css" text="Update" textFill="WHITE">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="Manager_AddProduct_ADD_btn" layoutX="95.0" layoutY="257.0" mnemonicParsing="false" styleClass="background-btn" stylesheets="@CSS.css" text="ADD" textFill="WHITE">
+                                    <Button fx:id="Manager_AddProduct_ADD_btn" layoutX="95.0" layoutY="257.0" mnemonicParsing="false" onAction="#addProductsAdd" styleClass="background-btn" stylesheets="@CSS.css" text="ADD" textFill="WHITE">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
                                     </Button>
-                                    <TextField fx:id="Manager_Product_search_TextFeild1" layoutX="481.0" layoutY="-4.0" prefHeight="36.0" prefWidth="234.0" promptText="Search" styleClass="Manager_search_TextFeild" stylesheets="@CSS.css" />
+                                    <TextField fx:id="Manager_Product_search_TextFeild1" layoutX="481.0" layoutY="-4.0" onKeyTyped="#addProductsSearch" prefHeight="36.0" prefWidth="234.0" promptText="Search" styleClass="Manager_search_TextFeild" stylesheets="@CSS.css" />
                                     <ImageView fitHeight="30.0" fitWidth="28.0" layoutX="486.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@Icon/searcha.png" />

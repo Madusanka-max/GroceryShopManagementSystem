@@ -9,10 +9,14 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
+import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -20,6 +24,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -39,6 +44,8 @@ import javafx.scene.control.TableView;
 
 
 import groceryshopmanagementsystem.ProductData;
+import groceryshopmanagementsystem.CashierData;
+import groceryshopmanagementsystem.getData;
 //import groceryshopmanagementsystem.MouseEventHandler;
 
 
@@ -160,7 +167,10 @@ public class Controller implements Initializable {
     private Button Manager_AddCashier_Clear_btn;
 
     @FXML
-    private TableColumn<ProductData, ?> Manager_AddCashier_table_Fname;
+    private TableColumn<CashierData, String> Manager_AddCashier_table_Fname;
+
+    @FXML
+    private TableColumn<CashierData, String> Manager_AddCashier_table_Password;
 
     @FXML
     private Label Manager_Dashbord_Dailyincome;
@@ -172,10 +182,7 @@ public class Controller implements Initializable {
     private TextField Manager_Employee_search_TextFeild2;
 
     @FXML
-    private TableColumn<?, ?> Manager_AddCashier_table_gender;
-
-    @FXML
-    private TableColumn<?, ?> Manager_AddCashier_table_Date;
+    private TableColumn<CashierData, String> Manager_AddCashier_table_gender;
 
     @FXML
     private Button Manager_AddProduct_Update_btn;
@@ -187,7 +194,7 @@ public class Controller implements Initializable {
     private Button Manager_AddProduct_ADD_btn;
 
     @FXML
-    private TableColumn<?, ?> Manager_AddCashier_table_Eid;
+    private TableColumn<CashierData, String> Manager_AddCashier_table_Eid;
 
     @FXML
     private TextField Manager_AddCashier_Fname_TextFeild;
@@ -220,13 +227,13 @@ public class Controller implements Initializable {
     private TableColumn<ProductData, String> Manager_AddProduct_table_status;
 
     @FXML
-    private TableColumn<?, ?> Manager_AddCashier_table_Lname;
+    private TableColumn<CashierData, String> Manager_AddCashier_table_Lname;
 
     @FXML
     private AnchorPane Manager_AddCashier;
 
     @FXML
-    private TableView<?> Manager_AddCashier_table;
+    private TableView<CashierData> Manager_AddCashier_table;
 
     @FXML
     private AnchorPane Manager_AddProduct;
@@ -298,11 +305,17 @@ public class Controller implements Initializable {
             Manager_Dashbord.setVisible(true);
             Manager_AddCashier.setVisible (false);
             Manager_AddProduct.setVisible(false);
+
+            displayUsername();
         }
         else if (event.getSource() == Manager_AddCashier_btn) {
             Manager_Dashbord.setVisible(false);
             Manager_AddCashier.setVisible (true);
             Manager_AddProduct.setVisible(false);
+
+            CashiersShowData();
+            displayUsername();
+            CashiersSearch();
         }
         else if (event.getSource() == Manager_AddProduct_btn) {
             Manager_Dashbord.setVisible(false);
@@ -310,6 +323,8 @@ public class Controller implements Initializable {
             Manager_AddProduct.setVisible(true);
 
             addProductsShowData();
+            displayUsername();
+            addProductsSearch();
         }
     }
     
@@ -367,6 +382,9 @@ public void close(){
                 prepare.setString(2, ManagerLogin_password_textField.getText());
                 result = prepare.executeQuery();
                 if (result.next()) {
+
+                    getData.userName = ManagerLogin_Username_textField.getText();
+
                     showErrorAlert("Success Message","Successfully Login!");
                     ManagerLogin_Login_btn.getScene().getWindow().hide();
                     // Handle navigation to cashier Dashbord screen
@@ -391,13 +409,12 @@ public void close(){
 
                     stage.setScene(scene);
                     stage.show();
+
                 }else{
                     showErrorAlert("Error Message","Wrong Username or Password");
                 }
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        } catch (Exception e) {e.printStackTrace();}
     }
 
 
@@ -445,18 +462,148 @@ public void close(){
                     showErrorAlert("Error Message","Wrong Username or Password");
                 }
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        } catch (Exception e) {e.printStackTrace();}
     }
 
 //Manager Add Product
 
-
-    public void addProductsAdd(){
-
+//
+    public void displayUsername(){
+        Manager_userName.setText(getData.userName);
     }
 
+//
+    public void addProductsAdd(){
+        String insertProduct = "INSERT INTO product"
+        +" (ProductId,ProductName,BrandName,Price,Status)"
+        +"VALUES(?,?,?,?,?)";
+        connect = database.connectdb();
+        try {
+            if (Manager_AddProduct_Pid_TextFeild.getText().isEmpty() 
+            || Manager_AddProduct_Pname_TextFeild.getText().isEmpty() 
+            || Manager_AddProduct_status_TextFeild.getText().isEmpty() 
+            || Manager_AddProduct_price_TextFeild.getText().isEmpty() 
+            || Manager_AddProduct_Bname_TextFeild.getText().isEmpty() ) {
+                showErrorAlert("Error Message","Please fill blank fields");}
+            else{
+                String check = "SELECT ProductId FROM product WHERE ProductId = '"
+                        +Manager_AddProduct_Pid_TextFeild.getText()+"'";
+                statement = connect.createStatement();
+                result = statement.executeQuery(check);
+                if (result.next()) {
+                    showErrorAlert("Error Message","Product Name: "+ Manager_AddProduct_Pname_TextFeild.getText() + " was already exist!" );
+                }else{
+                    prepare = connect.prepareStatement(insertProduct);
+
+                    prepare.setString(1, Manager_AddProduct_Pid_TextFeild.getText());
+                    prepare.setString(2, Manager_AddProduct_Pname_TextFeild.getText());
+                    prepare.setString(3, Manager_AddProduct_Bname_TextFeild.getText());
+                    prepare.setString(4, Manager_AddProduct_price_TextFeild.getText());
+                    prepare.setString(5, Manager_AddProduct_status_TextFeild.getText());
+
+                    prepare.executeUpdate();
+
+                    Alert alert = new Alert(AlertType.INFORMATION);
+                    alert.setTitle("Information Message");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Successfully Added!");
+                    alert.showAndWait();
+
+                    addProductsShowData();
+                    addProductsClear();
+
+                }
+
+            }
+        } catch (Exception e) {e.printStackTrace();}
+    }
+
+//
+    public void addProductsDelete(){
+        String deleteProduct = "DELETE FROM product WHERE ProductId = '"+Manager_AddProduct_Pid_TextFeild.getText()+"'";
+        connect = database.connectdb();
+        try {
+            if (Manager_AddProduct_Pid_TextFeild.getText().isEmpty() 
+            || Manager_AddProduct_Pname_TextFeild.getText().isEmpty() 
+            || Manager_AddProduct_status_TextFeild.getText().isEmpty() 
+            || Manager_AddProduct_price_TextFeild.getText().isEmpty() 
+            || Manager_AddProduct_Bname_TextFeild.getText().isEmpty() ) {
+                showErrorAlert("Error Message","Please fill blank fields");}
+            else{
+                Alert alert = new Alert(AlertType.CONFIRMATION);
+                alert.setTitle("Confirmation Message");
+                alert.setHeaderText(null);
+                alert.setContentText("Are you sure you want to DELETE ProductId: "+Manager_AddProduct_Pid_TextFeild.getText() + " ?");
+                
+                Optional<ButtonType> option = alert.showAndWait();
+                if(option.get().equals(ButtonType.OK)){
+                    prepare = connect.prepareStatement(deleteProduct);
+                    prepare.executeUpdate();
+                    
+                    alert = new Alert(AlertType.INFORMATION);
+                    alert.setTitle("Information Message");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Successfully Deleted!");
+                    alert.showAndWait();
+                        
+                    addProductsShowData();
+                    addProductsClear();
+                }else return;
+            }
+        } catch (Exception e) {e.printStackTrace();}
+    } 
+
+//
+public void addPorductsUpdate(){ 
+    String updateProduct = "UPDATE product SET BrandName = '"
+    +Manager_AddProduct_Bname_TextFeild.getText()+"',ProductName = '"
+    +Manager_AddProduct_Pname_TextFeild.getText()+"',status = '"
+    +Manager_AddProduct_status_TextFeild.getText()+"',Price = '"
+    +Manager_AddProduct_price_TextFeild.getText()+"'WHERE ProductId = '"
+    +Manager_AddProduct_Pid_TextFeild.getText()+"'";
+
+    connect = database.connectdb();
+
+    try {
+        if (Manager_AddProduct_Pid_TextFeild.getText().isEmpty() 
+            || Manager_AddProduct_Pname_TextFeild.getText().isEmpty() 
+            || Manager_AddProduct_status_TextFeild.getText().isEmpty() 
+            || Manager_AddProduct_price_TextFeild.getText().isEmpty() 
+            || Manager_AddProduct_Bname_TextFeild.getText().isEmpty() ) {
+            showErrorAlert("Error Message","Please fill blank fields");}
+            else{
+                Alert alert = new Alert(AlertType.CONFIRMATION);
+                alert.setTitle("Confirmation Message");
+                alert.setHeaderText(null);
+                alert.setContentText("Are you sure you want to UPDATE ProductId: "+Manager_AddProduct_Pid_TextFeild.getText() + " ?");
+                
+                Optional<ButtonType> option = alert.showAndWait();
+                if(option.get().equals(ButtonType.OK)){
+                    statement = connect.createStatement();
+                    statement.executeUpdate(updateProduct);
+                    alert = new Alert(AlertType.INFORMATION);
+                    alert.setTitle("Information Message");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Successfully Updated!");
+                    alert.showAndWait();
+
+                    addProductsShowData();
+                    addProductsClear();
+                }else return;
+            }
+    } catch (Exception e) {e.printStackTrace();}
+}
+
+//
+    public void addProductsClear(){
+        Manager_AddProduct_Pid_TextFeild.setText("");
+        Manager_AddProduct_Pname_TextFeild.setText("");
+        Manager_AddProduct_Bname_TextFeild.setText("");
+        Manager_AddProduct_status_TextFeild.setText("");
+        Manager_AddProduct_price_TextFeild.setText("");
+    }
+
+//
     public ObservableList<ProductData> addPorductListData(){
         ObservableList<ProductData> prodList = FXCollections.observableArrayList();
         String sql = "select * From product";
@@ -479,7 +626,7 @@ public void close(){
 
     
     private ObservableList<ProductData> addProductsList;
-
+//
     public void addProductsShowData(){
         addProductsList = addPorductListData();
 
@@ -491,25 +638,274 @@ public void close(){
         
         Manager_AddProduct_table.setItems(addProductsList);
     }
-
+//
     public void addProductsSelect () {
         ProductData prod = Manager_AddProduct_table.getSelectionModel ().getSelectedItem();
         int num = Manager_AddProduct_table.getSelectionModel ().getSelectedIndex();
-
         if((num-1) <- 1) {
             return;
         }
-        
         Manager_AddProduct_Pid_TextFeild.setText (prod.getProductId());
         Manager_AddProduct_Bname_TextFeild.setText(prod.getBrandName());
         Manager_AddProduct_Pname_TextFeild.setText(prod.getProductName()) ;
         Manager_AddProduct_price_TextFeild.setText(String.valueOf(prod.getPrice()));
         Manager_AddProduct_status_TextFeild.setText(String.valueOf(prod.getStatus()));
         }
+
+//
+public void addProductsSearch() {
+    FilteredList<ProductData> filter = new FilteredList<>(addProductsList, e -> true);
+
+    Manager_Product_search_TextFeild1.textProperty().addListener((observable, oldValue, newValue) -> {
+        filter.setPredicate(predicateProductData -> {
+            if (newValue == null || newValue.isEmpty()) {
+                return true;
+            }
+            String searchKey = newValue.toLowerCase();
+
+            if (String.valueOf(predicateProductData.getProductId()).toLowerCase().contains(searchKey)) {
+                return true;
+            } else if (predicateProductData.getBrandName().toLowerCase().contains(searchKey)) {
+                return true;
+            } else if (String.valueOf(predicateProductData.getStatus()).contains(searchKey)) {
+                return true;
+            } else if (predicateProductData.getProductName().toLowerCase().contains(searchKey)) {
+                return true;
+            } else if (String.valueOf(predicateProductData.getPrice()).toLowerCase().contains(searchKey)) {
+                return true;
+            } else {
+                return false;
+            }
+        });
+    });
+
+    SortedList<ProductData> sortList = new SortedList<>(filter);
+    sortList.comparatorProperty().bind(Manager_AddProduct_table.comparatorProperty());
+    Manager_AddProduct_table.setItems(sortList);
+}
+
+
+// Manager add cashier
+
+//
+    public void CashiersAdd(){
+        String insertCashier = "INSERT INTO cashier"
+        +" (userName,Password,Lname,Gender,Fname)"
+        +"VALUES(?,?,?,?,?)";
+        connect = database.connectdb();
+        try {
+            if (Manager_AddCashier_Eid_TextFeild.getText().isEmpty() 
+            || Manager_AddCashier_Fname_TextFeild.getText().isEmpty() 
+            || Manager_AddCashier_gender_TextFeild.getText().isEmpty() 
+            || Manager_AddCashier_password_TextFeild.getText().isEmpty() 
+            || Manager_AddCashier_Lname_TextFeild.getText().isEmpty()) {
+                showErrorAlert("Error Message","Please fill blank fields");}
+            else{
+                String check = "SELECT userName FROM cashier WHERE userName = '"
+                        +Manager_AddProduct_Pid_TextFeild.getText()+"'";
+                statement = connect.createStatement();
+                result = statement.executeQuery(check);
+                if (result.next()) {
+                    showErrorAlert("Error Message","userName: "+ Manager_AddCashier_Eid_TextFeild.getText() + " was already exist!" );
+                }else{
+                    prepare = connect.prepareStatement(insertCashier);
+
+                    prepare.setString(1, Manager_AddCashier_Eid_TextFeild.getText());
+                    prepare.setString(2, Manager_AddCashier_Fname_TextFeild.getText());
+                    prepare.setString(3, Manager_AddCashier_gender_TextFeild.getText());
+                    prepare.setString(4, Manager_AddCashier_password_TextFeild.getText());
+                    prepare.setString(5, Manager_AddCashier_Lname_TextFeild.getText());
+
+                    prepare.executeUpdate();
+
+                    Alert alert = new Alert(AlertType.INFORMATION);
+                    alert.setTitle("Information Message");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Successfully Added!");
+                    alert.showAndWait();
+
+                    CashiersShowData();
+                    CashiersClear();
+
+                }
+
+            }
+        } catch (Exception e) {e.printStackTrace();}
+    }
+
+//
+    public void CashiersDelete(){
+        String deleteCashier = "DELETE FROM cashier WHERE userName = '"+Manager_AddCashier_Eid_TextFeild.getText()+"'";
+        connect = database.connectdb();
+        try {
+            if (Manager_AddCashier_Eid_TextFeild.getText().isEmpty() 
+            || Manager_AddCashier_Fname_TextFeild.getText().isEmpty() 
+            || Manager_AddCashier_gender_TextFeild.getText().isEmpty() 
+            || Manager_AddCashier_password_TextFeild.getText().isEmpty() 
+            || Manager_AddCashier_Lname_TextFeild.getText().isEmpty()) {
+                showErrorAlert("Error Message","Please fill blank fields");}
+            else{
+                Alert alert = new Alert(AlertType.CONFIRMATION);
+                alert.setTitle("Confirmation Message");
+                alert.setHeaderText(null);
+                alert.setContentText("Are you sure you want to DELETE Cashier: "+Manager_AddCashier_Eid_TextFeild.getText() + " ?");
+                
+                Optional<ButtonType> option = alert.showAndWait();
+                if(option.get().equals(ButtonType.OK)){
+                    prepare = connect.prepareStatement(deleteCashier);
+                    prepare.executeUpdate();
+                    
+                    alert = new Alert(AlertType.INFORMATION);
+                    alert.setTitle("Information Message");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Successfully Deleted!");
+                    alert.showAndWait();
+                        
+                    CashiersShowData();
+                    CashiersClear();
+                }else return;
+            }
+        } catch (Exception e) {e.printStackTrace();}
+    } 
+
+//
+public void CashiersUpdate(){ 
+    String updateCashier = "UPDATE cashier SET Password = '"
+    +Manager_AddCashier_password_TextFeild.getText()+"',Lname = '"
+    +Manager_AddCashier_Lname_TextFeild.getText()+"',Fname = '"
+    +Manager_AddCashier_Fname_TextFeild.getText()+"',Gender = '"
+    +Manager_AddCashier_gender_TextFeild.getText()+"'WHERE userName = '"
+    +Manager_AddProduct_Pid_TextFeild.getText()+"'";
+
+    connect = database.connectdb();
+
+    try {
+        if (Manager_AddCashier_Eid_TextFeild.getText().isEmpty() 
+        || Manager_AddCashier_Fname_TextFeild.getText().isEmpty() 
+        || Manager_AddCashier_gender_TextFeild.getText().isEmpty() 
+        || Manager_AddCashier_password_TextFeild.getText().isEmpty() 
+        || Manager_AddCashier_Lname_TextFeild.getText().isEmpty()) {
+            showErrorAlert("Error Message","Please fill blank fields");}
+            else{
+                Alert alert = new Alert(AlertType.CONFIRMATION);
+                alert.setTitle("Confirmation Message");
+                alert.setHeaderText(null);
+                alert.setContentText("Are you sure you want to UPDATE ProductId: "+Manager_AddCashier_Eid_TextFeild.getText() + " ?");
+                
+                Optional<ButtonType> option = alert.showAndWait();
+                if(option.get().equals(ButtonType.OK)){
+                    statement = connect.createStatement();
+                    statement.executeUpdate(updateCashier);
+                    alert = new Alert(AlertType.INFORMATION);
+                    alert.setTitle("Information Message");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Successfully Updated!");
+                    alert.showAndWait();
+
+                    CashiersShowData();
+                    CashiersClear();
+                }else return;
+            }
+    } catch (Exception e) {e.printStackTrace();}
+}
+
+//
+    public void CashiersClear(){
+        Manager_AddCashier_Eid_TextFeild.setText("");
+        Manager_AddCashier_Fname_TextFeild.setText(""); 
+        Manager_AddCashier_gender_TextFeild.setText(""); 
+        Manager_AddCashier_password_TextFeild.setText(""); 
+        Manager_AddCashier_Lname_TextFeild.setText("");
+    }
+
+//
+    public ObservableList<CashierData> CashierListData(){
+        ObservableList<CashierData> CData = FXCollections.observableArrayList();
+        String sql = "select * From cashier";
+        connect = database.connectdb();
+        try {
+            CashierData CashierD;
+            prepare = connect.prepareStatement(sql);
+            result = prepare.executeQuery();
+            while (result.next()) {
+                CashierD = new CashierData(result.getString("Password")
+                ,result.getString("Lname")
+                ,result.getString("Fname")
+                ,result.getString("userName")
+                ,result.getString("Gender"));
+                CData.add(CashierD);
+            }
+        } catch (Exception e) {e.printStackTrace();}
+        return CData;
+    }
+
+    private ObservableList<CashierData> CashierList;
+//
+    public void CashiersShowData(){
+        CashierList = CashierListData();
+
+        Manager_AddCashier_table_Eid.setCellValueFactory(new PropertyValueFactory<>("userName"));
+        Manager_AddCashier_table_Fname.setCellValueFactory(new PropertyValueFactory<>("Fname"));
+        Manager_AddCashier_table_Lname.setCellValueFactory(new PropertyValueFactory<>("Lname"));
+        Manager_AddCashier_table_gender.setCellValueFactory(new PropertyValueFactory<>("Gender"));
         
-    
+        Manager_AddCashier_table.setItems(CashierList);
+    }
+//
+    public void CashiersSelect () {
+        CashierData CData = Manager_AddCashier_table.getSelectionModel().getSelectedItem();
+        int num = Manager_AddCashier_table.getSelectionModel ().getSelectedIndex();
+        if((num-1) <- 1) {
+            return;
+        }
+        Manager_AddCashier_Eid_TextFeild.setText (CData.userName());
+        Manager_AddCashier_Fname_TextFeild.setText(CData.Fname());
+        Manager_AddCashier_gender_TextFeild.setText(CData.Gender()) ;
+        Manager_AddCashier_password_TextFeild.setText(String.valueOf(CData.Password()));
+        Manager_AddCashier_Lname_TextFeild.setText(String.valueOf(CData.Lname()));
+        }
+
+//
+public void CashiersSearch() {
+    FilteredList<CashierData> filter = new FilteredList<>(CashierList, e -> true);
+
+    Manager_Employee_search_TextFeild2.textProperty().addListener((observable, oldValue, newValue) -> {
+        filter.setPredicate(predicateCashieData -> {
+            if (newValue == null || newValue.isEmpty()) {
+                return true;
+            }
+            String searchKey = newValue.toLowerCase();
+
+            if (String.valueOf(predicateCashieData.userName()).toLowerCase().contains(searchKey)) {
+                return true;
+            } else if (predicateCashieData.Fname().toLowerCase().contains(searchKey)) {
+                return true;
+            } else if (predicateCashieData.Gender().toLowerCase().contains(searchKey)) {
+                return true;
+            } else if (predicateCashieData.Lname().toLowerCase().contains(searchKey)) {
+                return true;
+            } else {
+                return false;
+            }
+        });
+    });
+
+    SortedList<CashierData> sortList = new SortedList<>(filter);
+    sortList.comparatorProperty().bind(Manager_AddCashier_table.comparatorProperty());
+    Manager_AddCashier_table.setItems(sortList);
+}
+
+//Cashier add bill
+
+public void displayCashierId(){
+    Cashier_userName.setText(getData.userName);
+
+}
+
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+
     }
     
 }
