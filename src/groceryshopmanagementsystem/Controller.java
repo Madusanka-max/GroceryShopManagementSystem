@@ -42,6 +42,7 @@ import javafx.scene.chart.AreaChart;
 import javafx.scene.chart.XYChart;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import java.io.IOException;
 import javafx.scene.Node;
@@ -112,7 +113,7 @@ public class Controller implements Initializable {
     private Label Cashier_total_label;
 
     @FXML
-    private TableColumn<billData, String> Cashier_table_Quantity;
+    private TableColumn<billData, Integer> Cashier_table_Quantity;
 
     @FXML
     private TableColumn<billData, String> Cashier_table_Pname;
@@ -306,6 +307,7 @@ public class Controller implements Initializable {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();
+            displayCashierId();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -368,16 +370,6 @@ public class Controller implements Initializable {
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
-    }
-
-    // Display confirmation alerts
-    private boolean showConfirmationAlert(String title, String message) {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        Optional<ButtonType> option = alert.showAndWait();
-        return option.isPresent() && option.get() == ButtonType.OK;
     }
 
     // GoingBack Button method
@@ -556,7 +548,7 @@ public class Controller implements Initializable {
         }
     }
 
-    //
+    // Method to display a chart on the dashboard
     public void dashboardDisplayChart() {
         dashboardChart.getData().clear();
         String sql = "SELECT date,SUM(total) FROM customerreceipt GROUP BY date ORDER BY TIMESTAMp(date) ASC LIMIT 9";
@@ -607,7 +599,7 @@ public class Controller implements Initializable {
 
     // Manager Add Product
 
-    //
+    // add a new product to the database
     public void addProductsAdd() {
         String insertProduct = "INSERT INTO product"
                 + " (ProductId,ProductName,BrandName,Price,Status)"
@@ -636,18 +628,14 @@ public class Controller implements Initializable {
                     prepare.setString(3, Manager_AddProduct_Bname_TextFeild.getText());
                     prepare.setString(4, Manager_AddProduct_price_TextFeild.getText());
                     prepare.setString(5, Manager_AddProduct_status_TextFeild.getText());
-
                     prepare.executeUpdate();
-
                     Alert alert = new Alert(AlertType.INFORMATION);
                     alert.setTitle("Information Message");
                     alert.setHeaderText(null);
                     alert.setContentText("Successfully Added!");
                     alert.showAndWait();
-
                     addProductsShowData();
                     addProductsClear();
-
                 }
 
             }
@@ -800,21 +788,64 @@ public class Controller implements Initializable {
     }
 
     //
+    // public void addProductsSearch() {
+    // FilteredList<ProductData> filter = new FilteredList<>(addProductsList, e ->
+    // true);
+
+    // Manager_Product_search_TextFeild1.textProperty().addListener((observable,
+    // oldValue, newValue) -> {
+    // filter.setPredicate(predicateProductData -> {
+    // if (newValue == null || newValue.isEmpty()) {
+    // return true;
+    // }
+    // String searchKey = newValue.toLowerCase();
+
+    // if
+    // (String.valueOf(predicateProductData.getProductId()).toLowerCase().contains(searchKey))
+    // {
+    // return true;
+    // } else if
+    // (predicateProductData.getBrandName().toLowerCase().contains(searchKey)) {
+    // return true;
+    // } else if
+    // (String.valueOf(predicateProductData.getStatus()).toLowerCase().contains(searchKey))
+    // {
+    // return true;
+    // } else if
+    // (predicateProductData.getProductName().toLowerCase().contains(searchKey)) {
+    // return true;
+    // } else if
+    // (String.valueOf(predicateProductData.getPrice()).toLowerCase().contains(searchKey))
+    // {
+    // return true;
+    // } else {
+    // return false;
+    // }
+    // });
+    // });
+
+    // SortedList<ProductData> sortedData = new SortedList<>(filter);
+    // sortedData.comparatorProperty().bind(Manager_AddProduct_table.comparatorProperty());
+
+    // Manager_AddProduct_table.setItems(sortedData);
+    // }
+
     public void addProductsSearch() {
         FilteredList<ProductData> filter = new FilteredList<>(addProductsList, e -> true);
 
-        Manager_Product_search_TextFeild1.textProperty().addListener((observable, oldValue, newValue) -> {
+        Manager_Product_search_TextFeild1.addEventHandler(KeyEvent.KEY_TYPED, event -> {
+            String searchKey = Manager_Product_search_TextFeild1.getText().toLowerCase();
+
             filter.setPredicate(predicateProductData -> {
-                if (newValue == null || newValue.isEmpty()) {
+                if (searchKey == null || searchKey.isEmpty()) {
                     return true;
                 }
-                String searchKey = newValue.toLowerCase();
 
-                if (String.valueOf(predicateProductData.getProductId()).toLowerCase().contains(searchKey)) {
+                if (predicateProductData.getProductId().toLowerCase().contains(searchKey)) {
                     return true;
                 } else if (predicateProductData.getBrandName().toLowerCase().contains(searchKey)) {
                     return true;
-                } else if (String.valueOf(predicateProductData.getStatus()).contains(searchKey)) {
+                } else if (String.valueOf(predicateProductData.getStatus()).toLowerCase().contains(searchKey)) {
                     return true;
                 } else if (predicateProductData.getProductName().toLowerCase().contains(searchKey)) {
                     return true;
@@ -826,9 +857,10 @@ public class Controller implements Initializable {
             });
         });
 
-        SortedList<ProductData> sortList = new SortedList<>(filter);
-        sortList.comparatorProperty().bind(Manager_AddProduct_table.comparatorProperty());
-        Manager_AddProduct_table.setItems(sortList);
+        SortedList<ProductData> sortedData = new SortedList<>(filter);
+        sortedData.comparatorProperty().bind(Manager_AddProduct_table.comparatorProperty());
+
+        Manager_AddProduct_table.setItems(sortedData);
     }
 
     // Manager add cashier
@@ -1120,6 +1152,8 @@ public class Controller implements Initializable {
     private double totalP = 0;
     private String pName;
     private String bName;
+    private int currentQuantity;
+    private int getProductQuantity;
 
     // Add a purchase to the bill
     public void purchaseAdd() {
@@ -1127,17 +1161,31 @@ public class Controller implements Initializable {
         purchaseGetPrice();
         purchaseGetPName();
         purchaseGetBName();
+        purchaseGetStatus();
 
+        String checkProductId = "SELECT * FROM product WHERE ProductId = ?";
+        String insertProdBills = "INSERT INTO bills (customerId, brandName, productName, quantity, price, date) VALUES (?,?,?,?,?,?)";
         String insertProd = "INSERT INTO bill (customerId, brandName, productName, quantity, price, date) VALUES (?,?,?,?,?,?)";
+        String updateProductQuantity = "UPDATE product SET Status = ? WHERE ProductId = ?";
+
         connect = database.connectdb();
 
         try {
             Date date = new Date();
             java.sql.Date sqlDate = new java.sql.Date(date.getTime());
 
-            if (Cashier_Pid_TextFeild.getText().isEmpty() || Cashier_Quantity_TextFeild.getText().isEmpty()) {
+            prepare = connect.prepareStatement(checkProductId);
+            prepare.setString(1, Cashier_Pid_TextFeild.getText());
+            result = prepare.executeQuery();
+
+            if (!result.next()) {
+                showErrorAlert("Error Message", "Product ID: " + Cashier_Pid_TextFeild.getText() + " does not exist!");
+            } else if (Cashier_Pid_TextFeild.getText().isEmpty() || Cashier_Quantity_TextFeild.getText().isEmpty()) {
                 showErrorAlert("Error Message", "Please fill blank fields");
             } else {
+
+                
+
                 String Quantity = Cashier_Quantity_TextFeild.getText();
                 prepare = connect.prepareStatement(insertProd);
                 prepare.setInt(1, customerId);
@@ -1151,9 +1199,36 @@ public class Controller implements Initializable {
 
                 prepare.executeUpdate();
 
+                // Also insert into bills table
+                prepare = connect.prepareStatement(insertProdBills);
+                prepare.setInt(1, customerId);
+                prepare.setString(2, bName);
+                prepare.setString(3, pName);
+                prepare.setInt(4, Integer.parseInt(Quantity));
+                prepare.setDouble(5, totalPrice);
+                prepare.setDate(6, sqlDate);
+
+                prepare.executeUpdate();
+
+                if (currentQuantity < Integer.parseInt(Quantity)) {
+                    showErrorAlert("Error Message",
+                            "Insufficient stock for product ID: " + Cashier_Pid_TextFeild.getText());
+                    return;
+                }
+
+                // Update the product quantity in the database
+                int newQuantity = currentQuantity - Integer.parseInt(Quantity);
+                prepare = connect.prepareStatement(updateProductQuantity);
+                prepare.setInt(1, newQuantity);
+                prepare.setString(2, Cashier_Pid_TextFeild.getText());
+
+                prepare.executeUpdate();
+
                 purchaseDisplayTotal();
                 purchaseShowListData();
+
             }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -1213,6 +1288,24 @@ public class Controller implements Initializable {
         }
     }
 
+    // Get the Status based on the product ID
+    public void purchaseGetStatus() {
+        String StatusQuery = "SELECT Status FROM product WHERE ProductID = ?";
+        connect = database.connectdb();
+
+        try {
+            prepare = connect.prepareStatement(StatusQuery);
+            prepare.setString(1, Cashier_Pid_TextFeild.getText());
+            result = prepare.executeQuery();
+
+            if (result.next()) {
+                currentQuantity = result.getInt("Status");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     // Fetch the list of bills for the current customer
     public ObservableList<billData> purchaseListData() {
         purchaseCustomerId();
@@ -1248,6 +1341,47 @@ public class Controller implements Initializable {
 
         Cashier_table.setItems(purchaseList);
     }
+
+    // // Fetch the list of bills for the current customer
+    // public ObservableList<billData> purchaseListData() {
+    // purchaseCustomerId();
+    // ObservableList<billData> billList = FXCollections.observableArrayList();
+    // String sql = "SELECT * FROM bill WHERE customerId = ?";
+    // connect = database.connectdb();
+
+    // try {
+    // prepare = connect.prepareStatement(sql);
+    // prepare.setInt(1, customerId);
+    // result = prepare.executeQuery();
+
+    // while (result.next()) {
+    // billData billD = new billData(result.getInt("customerId"),
+    // result.getString("brandName"),
+    // result.getString("productName"), result.getInt("quantity"),
+    // result.getDouble("price"),
+    // result.getDate("date"));
+    // billList.add(billD);
+    // }
+    // } catch (Exception e) {
+    // e.printStackTrace();
+    // }
+    // return billList;
+    // }
+
+    // // Display the list of bills in the table
+    // public void purchaseShowListData() {
+    // ObservableList<billData> purchaseList = purchaseListData();
+
+    // Cashier_table_Bid.setCellValueFactory(new
+    // PropertyValueFactory<>("brandName"));
+    // Cashier_table_Pname.setCellValueFactory(new
+    // PropertyValueFactory<>("productName"));
+    // Cashier_table_Quantity.setCellValueFactory(new
+    // PropertyValueFactory<>("quantity"));
+    // Cashier_table_Price.setCellValueFactory(new PropertyValueFactory<>("price"));
+
+    // Cashier_table.setItems(purchaseList);
+    // }
 
     // Get the next customer ID
     public void purchaseCustomerId() {
@@ -1358,6 +1492,7 @@ public class Controller implements Initializable {
                     alert.setHeaderText(null);
                     alert.setContentText("Successful!");
                     alert.showAndWait();
+                    purchaseReset();
                 }
             }
         } catch (Exception e) {

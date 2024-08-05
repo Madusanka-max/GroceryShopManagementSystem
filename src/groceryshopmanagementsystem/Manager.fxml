@@ -95,7 +95,7 @@
                <center>
                   <AnchorPane prefHeight="680.0" prefWidth="774.0" styleClass="backgroundpanal1" stylesheets="@CSS.css" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane fx:id="Manager_Dashbord" prefHeight="680.0" prefWidth="772.0" styleClass="backgroundpanal1" stylesheets="@CSS.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="Manager_Dashbord" prefHeight="680.0" prefWidth="772.0" styleClass="backgroundpanal1" stylesheets="@CSS.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <AnchorPane layoutX="7.0" layoutY="237.0" prefHeight="453.0" prefWidth="782.0" styleClass="backgroundpanal2" stylesheets="@CSS.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="237.0">
                                  <children>
@@ -249,7 +249,7 @@
                                  </columns>
                               </TableView>
                            </children></AnchorPane>
-                        <AnchorPane fx:id="Manager_AddProduct" prefHeight="680.0" prefWidth="772.0" styleClass="backgroundpanal1" stylesheets="@CSS.css" visible="false">
+                        <AnchorPane fx:id="Manager_AddProduct" prefHeight="680.0" prefWidth="772.0" styleClass="backgroundpanal1" stylesheets="@CSS.css">
                            <children>
                               <TableView fx:id="Manager_AddProduct_table" layoutX="27.0" layoutY="14.0" onMouseClicked="#addProductsSelect" prefHeight="332.0" prefWidth="762.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
                                  <columns>

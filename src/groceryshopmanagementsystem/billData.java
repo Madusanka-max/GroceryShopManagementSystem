@@ -10,8 +10,7 @@ public class billData {
     private Double price;
     private Date date;
 
-    
-    public billData(int customerId,String brandName,String productName,int quantity,double price,Date date){
+    public billData(int customerId, String brandName, String productName, int quantity, double price, Date date) {
         this.customerId = customerId;
         this.brandName = brandName;
         this.productName = productName;
@@ -19,23 +18,28 @@ public class billData {
         this.price = price;
         this.date = date;
     }
-    public int getcustomerId(){
+
+    public int getCustomerId() {
         return customerId;
     }
-    public String getbrandName(){
+
+    public String getBrandName() {
         return brandName;
     }
-    public String getproductName(){
+
+    public String getProductName() {
         return productName;
     }
-    public int getquantity(){
+
+    public int getQuantity() {
         return quantity;
     }
-    public double getprice(){
+
+    public double getPrice() {
         return price;
     }
-    public Date getdate(){
+
+    public Date getDate() {
         return date;
     }
-
 }

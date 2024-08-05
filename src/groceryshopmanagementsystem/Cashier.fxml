@@ -22,7 +22,7 @@
                            <children>
                               <Pane layoutX="18.0" layoutY="358.0" prefHeight="236.0" prefWidth="768.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0">
                                  <children>
-                                    <Button fx:id="Cashier_Delete_btn" layoutX="233.0" layoutY="158.0" mnemonicParsing="false" onAction="#purchaseReset" styleClass="background-btn" stylesheets="@CSS.css" text="Delete" textFill="WHITE">
+                                    <Button fx:id="Cashier_Delete_btn" layoutX="240.0" layoutY="158.0" mnemonicParsing="false" onAction="#purchaseReset" styleClass="background-btn" stylesheets="@CSS.css" text="Clear" textFill="WHITE">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
@@ -74,11 +74,6 @@
                                     <TableColumn fx:id="Cashier_table_Price" prefWidth="119.0" text="Price" />
                                  </columns>
                               </TableView>
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane fx:id="Cashier_Purchase1" layoutX="10.0" layoutY="10.0" prefHeight="680.0" prefWidth="772.0" stylesheets="@CSS.css" visible="false">
-                           <children>
-                              <Pane layoutX="18.0" layoutY="358.0" prefHeight="236.0" prefWidth="768.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" />
                            </children>
                         </AnchorPane>
                      </children>
