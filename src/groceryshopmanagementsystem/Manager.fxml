@@ -95,11 +95,11 @@
                <center>
                   <AnchorPane prefHeight="680.0" prefWidth="774.0" styleClass="backgroundpanal1" stylesheets="@CSS.css" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane fx:id="Manager_Dashbord" prefHeight="680.0" prefWidth="772.0" styleClass="backgroundpanal1" stylesheets="@CSS.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="Manager_Dashbord" prefHeight="680.0" prefWidth="772.0" styleClass="backgroundpanal1" stylesheets="@CSS.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <AnchorPane layoutX="7.0" layoutY="237.0" prefHeight="453.0" prefWidth="782.0" styleClass="backgroundpanal2" stylesheets="@CSS.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="237.0">
                                  <children>
-                                    <AreaChart layoutX="11.0" layoutY="9.0" prefHeight="434.0" prefWidth="762.0" style="-fx-background-color: transperant;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                    <AreaChart fx:id="dashboardChart" layoutX="11.0" layoutY="9.0" prefHeight="434.0" prefWidth="762.0" style="-fx-background-color: transperant;" title="Incocome Chart Data" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                                       <xAxis>
                                         <CategoryAxis side="BOTTOM" />
                                       </xAxis>
@@ -112,12 +112,12 @@
                                  <children>
                                     <AnchorPane prefHeight="213.0" prefWidth="237.0" styleClass="backgroundpanal3" stylesheets="@CSS.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
                                        <children>
-                                          <ImageView fitHeight="121.0" fitWidth="137.0" layoutX="58.0" pickOnBounds="true" preserveRatio="true">
+                                          <ImageView fitHeight="121.0" fitWidth="137.0" layoutX="57.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@../../icon/employee.png" />
                                              </image>
                                           </ImageView>
-                                          <Label fx:id="Manager_Dashbord_Cashier_Num" layoutX="108.0" layoutY="100.0" text="0">
+                                          <Label fx:id="Manager_Dashbord_Cashier_Num" alignment="CENTER" layoutX="2.0" layoutY="100.0" prefHeight="58.0" prefWidth="231.0" text="0">
                                              <font>
                                                 <Font size="40.0" />
                                              </font>
@@ -140,9 +140,9 @@
                                                 <Font size="24.0" />
                                              </font>
                                           </Label>
-                                          <Label fx:id="Manager_Dashbord_Monthlyincome" layoutX="112.0" layoutY="116.0" text="0">
+                                          <Label fx:id="Manager_Dashbord_Monthlyincome" alignment="CENTER" layoutY="116.0" prefHeight="58.0" prefWidth="235.0" text="0">
                                              <font>
-                                                <Font size="40.0" />
+                                                <Font size="30.0" />
                                              </font>
                                           </Label>
                                           <Label layoutX="23.0" layoutY="160.0" text="Monthly income">
@@ -163,9 +163,9 @@
                                                 <Font size="30.0" />
                                              </font>
                                           </Label>
-                                          <Label fx:id="Manager_Dashbord_Dailyincome" layoutX="108.0" layoutY="121.0" text="0">
+                                          <Label fx:id="Manager_Dashbord_Dailyincome" alignment="CENTER" layoutX="2.0" layoutY="121.0" prefHeight="58.0" prefWidth="234.0" text="0">
                                              <font>
-                                                <Font size="40.0" />
+                                                <Font size="30.0" />
                                              </font>
                                           </Label>
                                           <Label layoutX="101.0" layoutY="97.0" text="Rs. ">
@@ -177,7 +177,7 @@
                                  </children>
                               </AnchorPane>
                            </children></AnchorPane>
-                        <AnchorPane fx:id="Manager_AddCashier" prefHeight="680.0" prefWidth="772.0" stylesheets="@CSS.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="Manager_AddCashier" prefHeight="680.0" prefWidth="772.0" stylesheets="@CSS.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <Pane layoutX="18.0" layoutY="358.0" prefHeight="332.0" prefWidth="769.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0">
                                  <children>
@@ -239,13 +239,13 @@
                                     </ImageView>
                                  </children>
                               </Pane>
-                              <TableView fx:id="Manager_AddCashier_table" layoutX="30.0" layoutY="14.0" prefHeight="327.0" prefWidth="719.0" stylesheets="@CSS.css" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                              <TableView fx:id="Manager_AddCashier_table" layoutX="5.0" layoutY="14.0" onMouseClicked="#CashiersSelect" prefHeight="327.0" prefWidth="719.0" stylesheets="@CSS.css" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="14.0">
                                  <columns>
                                     <TableColumn fx:id="Manager_AddCashier_table_Eid" prefWidth="145.0" text="User Name" />
-                                    <TableColumn fx:id="Manager_AddCashier_table_Fname" prefWidth="202.0" text="First Name" />
-                                    <TableColumn fx:id="Manager_AddCashier_table_Lname" prefWidth="152.0" text="Last Name" />
-                                    <TableColumn fx:id="Manager_AddCashier_table_gender" prefWidth="99.0" text="Gender" />
                                     <TableColumn fx:id="Manager_AddCashier_table_Password" prefWidth="160.0" text="Password" />
+                                    <TableColumn fx:id="Manager_AddCashier_table_Lname" prefWidth="152.0" text="Last Name" />
+                                    <TableColumn fx:id="Manager_AddCashier_table_Fname" prefWidth="202.0" text="First Name" />
+                                    <TableColumn fx:id="Manager_AddCashier_table_gender" prefWidth="99.0" text="Gender" />
                                  </columns>
                               </TableView>
                            </children></AnchorPane>

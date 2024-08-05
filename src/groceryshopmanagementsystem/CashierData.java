@@ -8,26 +8,30 @@ public class CashierData {
     private String Gender;
 
 
-    public CashierData(String Password,String Lname, String Fname ,String userName, String Gender){
+    public CashierData(String userName,String Password,String Lname, String Fname ,String Gender){
         this.Password = Password;
         this.Fname = Fname;
         this.Lname = Lname;
         this.userName = userName;
         this.Gender = Gender;
     }
-    public String Password(){
+    public String getPassword() {
         return Password;
     }
-    public String Fname(){
+
+    public String getFname() {
         return Fname;
     }
-    public String Lname(){
+
+    public String getLname() {
         return Lname;
     }
-    public String userName(){
+
+    public String getUserName() {
         return userName;
     }
-    public String Gender(){
+
+    public String getGender() {
         return Gender;
     }
 }

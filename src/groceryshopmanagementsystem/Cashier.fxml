@@ -22,17 +22,17 @@
                            <children>
                               <Pane layoutX="18.0" layoutY="358.0" prefHeight="236.0" prefWidth="768.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0">
                                  <children>
-                                    <Button fx:id="Cashier_Delete_btn" layoutX="233.0" layoutY="158.0" mnemonicParsing="false" styleClass="background-btn" stylesheets="@CSS.css" text="Delete" textFill="WHITE">
+                                    <Button fx:id="Cashier_Delete_btn" layoutX="233.0" layoutY="158.0" mnemonicParsing="false" onAction="#purchaseReset" styleClass="background-btn" stylesheets="@CSS.css" text="Delete" textFill="WHITE">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="Cashier_Clear_btn" layoutX="601.0" layoutY="158.0" mnemonicParsing="false" styleClass="background-btn" stylesheets="@CSS.css" text="Clear" textFill="WHITE">
+                                    <Button fx:id="Cashier_Print_btn" layoutX="603.0" layoutY="158.0" mnemonicParsing="false" onAction="#purchasePay" styleClass="background-btn" stylesheets="@CSS.css" text="Print" textFill="WHITE">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="Cashier_ADD_btn" layoutX="90.0" layoutY="158.0" mnemonicParsing="false" styleClass="background-btn" stylesheets="@CSS.css" text="ADD" textFill="WHITE">
+                                    <Button fx:id="Cashier_ADD_btn" layoutX="90.0" layoutY="158.0" mnemonicParsing="false" onAction="#purchaseAdd" styleClass="background-btn" stylesheets="@CSS.css" text="ADD" textFill="WHITE">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
@@ -44,7 +44,7 @@
                                     </Label>
                                     <TextField fx:id="Cashier_Pid_TextFeild" layoutX="190.0" layoutY="35.0" />
                                     <TextField fx:id="Cashier_Quantity_TextFeild" layoutX="190.0" layoutY="107.0" />
-                                    <Label alignment="CENTER" layoutX="44.0" layoutY="105.0" text="Quantity :" textFill="WHITE">
+                                    <Label alignment="CENTER" layoutX="54.0" layoutY="105.0" text="Quantity :" textFill="WHITE">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
@@ -76,6 +76,11 @@
                               </TableView>
                            </children>
                         </AnchorPane>
+                        <AnchorPane fx:id="Cashier_Purchase1" layoutX="10.0" layoutY="10.0" prefHeight="680.0" prefWidth="772.0" stylesheets="@CSS.css" visible="false">
+                           <children>
+                              <Pane layoutX="18.0" layoutY="358.0" prefHeight="236.0" prefWidth="768.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" />
+                           </children>
+                        </AnchorPane>
                      </children>
                   </AnchorPane>
                </center>
@@ -84,7 +89,7 @@
                      <children>
                         <AnchorPane layoutY="74.0" prefHeight="680.0" prefWidth="252.0" styleClass="backgroundpanal1" stylesheets="@CSS.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <Button fx:id="Cashier_Purchase_btn" layoutX="46.0" layoutY="419.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="160.0" styleClass="nav-btn" stylesheets="@LoginCSS.css" text="        Purchase" textFill="WHITE" AnchorPane.leftAnchor="46.0">
+                              <Button fx:id="Cashier_Purchase_btn" layoutX="46.0" layoutY="419.0" mnemonicParsing="false" onAction="#displayCashierId" prefHeight="45.0" prefWidth="160.0" styleClass="nav-btn" stylesheets="@LoginCSS.css" text="        Purchase" textFill="WHITE" AnchorPane.leftAnchor="46.0">
                                  <graphic>
                                     <ImageView fitHeight="20.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -105,7 +110,7 @@
                               <Line endX="100.0" layoutX="126.0" layoutY="339.0" startX="-100.0" stroke="WHITE" />
                               <Label fx:id="Cashier_userName" alignment="CENTER" layoutX="92.0" layoutY="285.0" text="Isuru" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
                                  <font>
-                                    <Font name="System Bold" size="32.0" />
+                                    <Font name="System Bold" size="24.0" />
                                  </font>
                               </Label>
                               <Label layoutX="56.0" layoutY="245.0" text="Welcome " textFill="WHITE">
